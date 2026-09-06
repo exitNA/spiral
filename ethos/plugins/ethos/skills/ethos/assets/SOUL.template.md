@@ -8,15 +8,15 @@ State the outcome the project exists to create and the boundaries that prevent a
 
 ## Mental Model
 
-Explain the few concepts and relationships that make product and engineering decisions easier to reason about.
+Explain the few concepts, relationships, and boundaries that make product and engineering decisions easier to reason about, including why those boundaries exist.
 
 ## Principles
 
-Record decision rules for recurring tradeoffs. Prefer “when X conflicts with Y, choose…” over slogans.
+Record conditional decision preferences: when X conflicts with Y under these conditions, prefer Z because of this rationale. Include material exceptions, supporting rationale links, and evidence that would warrant revisiting the rule. Keep choices driven by a temporary constraint in their original scope.
 
 ## Taste
 
-Calibrate what good feels like in this project. Use compact positive and negative examples when words alone are ambiguous.
+Calibrate observable qualities that make work good in this project. Use compact positive and negative examples when words alone are ambiguous, and state where the preference applies. Include established taste only; local candidates are not rules.
 
 ## Collaboration
 

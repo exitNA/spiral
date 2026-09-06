@@ -14,6 +14,9 @@ Use one `.proj-ethos/` at the resolved repository root, independently of where t
       0001-short-title.md            # Consequential decision and rationale
     topics/
       short-topic.md                # Substantial focused guidance, only when needed
+    .local/
+      .gitignore                     # Excludes all local contents with *
+      candidates.md                  # Optional uncertain evidence, never doctrine
 ```
 
 Create files and directories only when qualifying content needs them. A small project normally needs only `SOUL.md`; skip empty directories, placeholder sections, and a redundant README/index. The project mind links to the actual domain, decision, and topic documents that exist.
@@ -34,4 +37,4 @@ Keep domain definitions in `CONTEXT.md`. Record consequential historical rationa
 
 The directory is durable, reviewable project knowledge and can be versioned with the repository. Respect repository versioning policy. `AGENTS.md` stays at its applicable native location and carries compact operational rules and a pointer; code, tests, schemas, configuration, and reusable skills stay in their native locations.
 
-Keep run state, task checklists, telemetry, raw logs, secrets, and speculative observations out of `.proj-ethos/`. Loop's checkpoints and runtime profiles retain their existing locations. Missing Ethos does not require Loop to create this directory.
+Keep run state, task checklists, telemetry, raw logs, secrets, and unsupported guesses out of `.proj-ethos/`. The sole local evidence exception is `.local/candidates.md`, governed by [candidates.md](candidates.md); exclude it from Git and from doctrine indexes. Its contents are not shared knowledge. Loop's checkpoints and runtime profiles retain their existing locations. Missing Ethos does not require Loop to create this directory.

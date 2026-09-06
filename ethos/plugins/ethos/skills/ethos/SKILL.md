@@ -1,6 +1,6 @@
 ---
 name: ethos
-description: Continuously distill durable project intent, mental models, taste, decisions, collaboration norms, and proven engineering practice into a coherent repository knowledge system. Use when the user establishes or corrects a lasting principle, a meaningful tradeoff is resolved, repeated friction reveals a missing convention, or completed work produces a reusable lesson. Do not use for ordinary task summaries or transient status.
+description: Maintain project mental models, taste, and decision preferences. Use for durable user corrections, resolved tradeoffs, recurring friction, verified lessons, or revisiting relevant local learning candidates across conversations. Integrate established judgment; keep uncertain evidence separate from project rules. Skip ordinary task summaries and transient status.
 ---
 
 # Ethos
@@ -15,16 +15,16 @@ Detect learning continuously and canonicalize it conservatively. A qualifying in
 
 The loop is:
 
-1. Observe a signal during discussion, implementation, review, debugging, or validation.
-2. Decide whether it is durable project learning rather than task-local context.
+1. Before a project decision, read the relevant current judgment and any relevant local candidates. Apply established rules within their stated scope; candidates are questions, not instructions.
+2. Observe signals during discussion, implementation, review, debugging, and validation. Before the final response, screen the whole turn again, including outcomes that appeared after the user's message.
 3. Locate the narrowest existing authority that should own it.
-4. Reconcile it with what is already written and with repository evidence.
-5. Integrate by rewriting, sharpening, replacing, or retiring existing content.
-6. Validate coherence, links, and any executable guidance.
+4. Decide whether the evidence establishes durable learning, supports a bounded candidate, or is task-local. Reconcile it with existing judgment and contradictory evidence.
+5. Integrate established learning by rewriting, sharpening, replacing, or retiring existing content. Handle uncertain evidence using the candidate lifecycle below.
+6. Validate coherence, links, and any executable guidance. Finish only after each material signal has been integrated, retained as a candidate, clarified, or discarded; a no-learning turn needs no file or report.
 
 ## Qualifying signals
 
-Canonicalize when at least one strong signal exists and the result is likely to matter in future work:
+Screen the following signals for future decision value, then establish maturity before writing a rule. A signal can justify a candidate without justifying canonicalization:
 
 - The user explicitly states or corrects a project-wide principle, quality bar, or way of working.
 - A real tradeoff is resolved with rationale that future contributors need.
@@ -33,6 +33,20 @@ Canonicalize when at least one strong signal exists and the result is likely to 
 - Domain language, ownership, or a boundary becomes materially clearer.
 
 Do not canonicalize guesses, temporary workarounds, task status, secrets, personal data, isolated preferences, or facts already obvious from code and configuration.
+
+## Infer judgment from evidence
+
+Distinguish a mental model (concepts, relationships, boundaries, and why they matter), taste (observable qualities and useful positive/negative examples), and a decision preference (when two goals conflict, which wins and why). Preserve the conditions, rationale, exceptions, and evidence that would change a rule. A choice made under a deadline does not establish a general preference for speed over quality.
+
+An explicit durable user correction can establish a rule immediately. For an inferred rule, look for independent decisions with a shared rationale, check counterexamples and situational constraints, and distinguish user choices from the agent's own suggestions. Repeated wording, repeated evaluation of the same event, silence, and acceptance of task completion are not independent endorsements. Verified engineering evidence may establish a scoped practice; an unexplained pattern of aesthetic choices remains a candidate until clarified.
+
+Before promoting a consequential decision, extract any reusable conditional preference into the current project mind and link its rationale when needed. Keep one-off decisions in their own scope; do not manufacture a general principle for every ADR.
+
+## Carry uncertain evidence across conversations
+
+When observed project evidence may change a future decision but is not yet established, read [references/candidates.md](references/candidates.md). It defines the bounded, non-authoritative local candidate store, deduplication, expiry, rejection, and promotion. Read it also when a relevant candidate store already exists, even if this turn introduces no new candidate.
+
+Candidate maintenance follows the same active permissions and user constraints as knowledge edits. A read-only task permits reading, not creating, pruning, or updating either store. Keep task-local choices and unsupported guesses in the current conversation. Local candidates are not loaded automatically on another machine or checkout, and their absence is not evidence that a preference does not exist.
 
 ## Establish project scope
 
@@ -99,5 +113,7 @@ After an update:
 2. Verify every new path or link exists.
 3. Run relevant validation for any modified Skill, configuration, or executable policy.
 4. Report the distilled insight, its authority, and whether existing guidance was revised, replaced, or retired.
+
+When a later task uses an established rule, verify its conditions still apply and compare the outcome with its rationale. A counterexample triggers reconciliation, not automatic reversal. Report a material conflict or knowledge change; routine application and candidate housekeeping stay quiet. If a Hook requests a completion pass, review any unprocessed evidence once; do not repeat writes, questions, or the original answer when nothing changed. A pending clarification or unavailable write permission is an honest completion state, not a reason to retry indefinitely.
 
 When no candidate qualifies, remain silent about the loop and complete the user's task normally.

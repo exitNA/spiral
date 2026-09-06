@@ -15,13 +15,14 @@ Project knowledge distilled by Ethos lives in `<repo>/.proj-ethos/`. See [storag
 | `.proj-ethos/decisions/NNNN-short-title.md` | Consequential decision, alternatives, context, rationale, and replacement status | Every implementation choice or the current doctrine as a whole |
 | Skill | Reusable procedure with distinct triggers and completion criteria | Project-specific beliefs, ordinary facts, isolated preferences |
 | Local memories | Recall and supporting evidence across chats | Mandatory rules or the canonical project record |
+| `.proj-ethos/.local/candidates.md` | Bounded, unconfirmed project evidence in the current checkout | Established rules, shared doctrine, or instructions for product decisions |
 
 ## Maturity model
 
-Judge maturity internally; do not create a separate backlog merely to label every observation.
+Judge maturity by evidence. Use the [candidate lifecycle](candidates.md) only when uncertain observed evidence may change a future decision; ordinary observations do not need a backlog.
 
-- **Observation:** One event or statement. Use it in the current task but do not persist it yet.
-- **Emerging:** Repeated or strongly supported, but still uncertain. Ask for confirmation if canonization would influence future decisions.
+- **Observation:** One event or statement. Keep task-local context in the current conversation; a decision-relevant signal may enter the local candidate store without becoming a rule.
+- **Emerging:** Independent supporting events or strong evidence, but still uncertain. Retain counterexamples and clarify before uncertain canonization.
 - **Established:** Explicitly endorsed or validated by evidence. Integrate it into the current authority.
 - **Retired:** Superseded or contradicted. Remove it from current doctrine; preserve an ADR link only when the history remains decision-relevant.
 

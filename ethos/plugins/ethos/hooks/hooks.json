@@ -1,15 +1,27 @@
 {
-  "description": "Continuously screen each user turn for durable project learning.",
+  "description": "Screen project learning on entry and request one bounded final learning pass.",
   "hooks": {
     "UserPromptSubmit": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/printf '%s\\n' '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Ethos: During this turn, silently watch for durable project learning in user corrections, resolved tradeoffs, repeated friction, clarified domain boundaries, stable quality judgments, and verified outcomes. If a high-confidence candidate appears, explicitly load and follow $ethos before the final response. If none qualifies, continue without mentioning Ethos.\"}}'",
-            "commandWindows": "powershell.exe -NoLogo -NoProfile -NonInteractive -Command \"$o = @{ hookSpecificOutput = @{ hookEventName = 'UserPromptSubmit'; additionalContext = 'Ethos: During this turn, silently watch for durable project learning in user corrections, resolved tradeoffs, repeated friction, clarified domain boundaries, stable quality judgments, and verified outcomes. If a high-confidence candidate appears, explicitly load and follow $ethos before the final response. If none qualifies, continue without mentioning Ethos.' } }; $o | ConvertTo-Json -Compress -Depth 3\"",
+            "command": "python3 \"$PLUGIN_ROOT/hooks/ethos_hook.py\"",
+            "commandWindows": "powershell.exe -NoLogo -NoProfile -NonInteractive -Command \"& python (Join-Path ([Environment]::GetEnvironmentVariable('PLUGIN_ROOT')) 'hooks/ethos_hook.py')\"",
             "timeout": 5,
             "additionalContextLimit": 1200
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$PLUGIN_ROOT/hooks/ethos_hook.py\"",
+            "commandWindows": "powershell.exe -NoLogo -NoProfile -NonInteractive -Command \"& python (Join-Path ([Environment]::GetEnvironmentVariable('PLUGIN_ROOT')) 'hooks/ethos_hook.py')\"",
+            "timeout": 5
           }
         ]
       }

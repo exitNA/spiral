@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -75,18 +76,26 @@ def skill_frontmatter(path: Path) -> dict[str, str]:
 def validate_hook(path: Path) -> None:
     hooks = load_json(path)
     require(isinstance(hooks, dict), "hooks manifest must be a JSON object")
-    try:
-        hook = hooks["hooks"]["UserPromptSubmit"][0]["hooks"][0]
-        command = hook["command"]
-        windows_command = hook["commandWindows"]
-    except (KeyError, IndexError, TypeError) as error:
-        raise ValidationError("hooks.json must define cross-platform UserPromptSubmit commands") from error
-    require(isinstance(command, str) and command and isinstance(windows_command, str) and "$ethos" in windows_command, "invalid Ethos hook commands")
-    result = subprocess.run(command, cwd=ROOT, shell=True, executable="/bin/sh", check=True, capture_output=True, text=True, timeout=5)
-    output = json.loads(result.stdout)
-    hook_output = output["hookSpecificOutput"]
-    require(hook_output.get("hookEventName") == "UserPromptSubmit", "hook event name is inconsistent")
-    require(isinstance(hook_output.get("additionalContext"), str) and "$ethos" in hook_output["additionalContext"], "hook context must invoke Ethos")
+    for event in ("UserPromptSubmit", "Stop"):
+        try:
+            hook = hooks["hooks"][event][0]["hooks"][0]
+            command = hook["commandWindows" if os.name == "nt" else "command"]
+            for platform_command in (hook["command"], hook["commandWindows"]):
+                require(isinstance(platform_command, str) and "PLUGIN_ROOT" in platform_command and "ethos_hook.py" in platform_command, "invalid Ethos hook command")
+        except (KeyError, IndexError, TypeError) as error:
+            raise ValidationError(f"hooks.json must define cross-platform {event} commands") from error
+        payload = {"hook_event_name": event, "cwd": str(ROOT), "stop_hook_active": False}
+        result = subprocess.run(command, cwd=ROOT, shell=True, env={**os.environ, "PLUGIN_ROOT": str(path.parent.parent)}, input=json.dumps(payload), check=True, capture_output=True, text=True, timeout=5)
+        output = json.loads(result.stdout)
+        if event == "UserPromptSubmit":
+            hook_output = output.get("hookSpecificOutput", {})
+            require(hook_output.get("hookEventName") == event, "hook event name is inconsistent")
+            require(isinstance(hook_output.get("additionalContext"), str) and "$ethos" in hook_output["additionalContext"], "hook context must invoke Ethos")
+        else:
+            require(output.get("decision") == "block" and "$ethos" in output.get("reason", ""), "Stop must request a final Ethos pass")
+            payload["stop_hook_active"] = True
+            result = subprocess.run(command, cwd=ROOT, shell=True, env={**os.environ, "PLUGIN_ROOT": str(path.parent.parent)}, input=json.dumps(payload), check=True, capture_output=True, text=True, timeout=5)
+            require(json.loads(result.stdout) == {}, "Stop continuation must finish without looping")
 
 
 def validate_plugin(name: str, spec: dict[str, object]) -> None:
