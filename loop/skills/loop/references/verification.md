@@ -11,13 +11,15 @@
 
 ## PRD traceability
 
-For every task, establish the mapping in its dedicated task document before execution and maintain it through final review; small tasks may use a short list. Link existing requirement matrices as baselines. Every original requirement and discovered in-scope gap must remain accounted for, conceptually:
+For every task, establish the mapping in its dedicated LOOP.md before execution and maintain it through final review, strictly following [../templates/LOOP.md](../templates/LOOP.md), including for small tasks. Link existing requirement matrices as baselines. Every original requirement and discovered in-scope gap must remain accounted for, conceptually:
 
-| ID / source requirement | Implementation / deliverable | Verifier and actual evidence | Status / next action / owner |
-|---|---|---|---|
-| R1 / original request | files or artifact section | observed outcome and evidence location | verified, or remaining work |
+| ID | Requirement / source | Acceptance condition | Implementation / deliverable | Verification evidence | Status |
+| --- | --- | --- | --- | --- | --- |
+| R1 | original requested outcome | observable pass condition | files or artifact section | actual result, evidence location and tested version | verified, or unresolved status |
 
 Do not leave a requirement green only because code exists; verify its acceptance condition.
+
+Use the dynamic work-list rules in [memory-compression.md](memory-compression.md). Work-item completion and requirement acceptance are separate judgments: finished implementation tasks may still need verification, and an all-done task list can still omit an original requirement. Each verified row must point to relevant observed evidence for the final artifact/version; command names, counts without context, and the implementer's claim alone do not establish acceptance.
 
 Use pending, implemented-but-unverified, failed, blocked, or verified as appropriate. An exclusion needs its authorizing user instruction or evidence that it was never in scope. Preserve the original baseline when updating architecture, documentation, or test commands. A newly shortened checklist cannot retroactively satisfy omitted requirements.
 
@@ -36,7 +38,7 @@ When a concrete failure is reproducible:
 
 A reviewer should inspect the diff and requirements from a fresh role/context.
 
-At final review, supply the original request, baseline requirements, explicit scope changes, final artifact/version, and evidence map. The reviewer checks missing capabilities and removed/weakened checks before code quality. Return uncovered IDs to an implementation owner, repair them, and recheck affected requirements. A read-only inventory completed before implementation is not final review.
+At final review, supply the original request, baseline requirements, explicit scope changes, final artifact/version, evidence map, and dynamic work list including retired-item reasons. The reviewer checks missing capabilities, lost coverage from cancelled/replaced work, and removed/weakened checks before code quality. Return uncovered IDs to an implementation owner, repair them, and recheck affected requirements. A read-only inventory completed before implementation is not final review.
 
 Reviewer output should prioritize findings by severity and include concrete file/symbol references when possible.
 

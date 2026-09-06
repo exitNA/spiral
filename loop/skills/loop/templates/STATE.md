@@ -1,32 +1,24 @@
-# Loop state
+# Technical recovery snapshot
 
-- Task ID (same as the canonical task document):
-- Updated:
-- Status: active / blocked / complete / cancelled / budget exhausted
-- Contract location:
-- Current checkpoint and relevant checkout/version:
+Optional supporting evidence for LOOP.md, not a second task tracker. Read the canonical document first; reconcile this snapshot against its latest update before using it.
 
-## Latest round
+- Task ID:
+- Canonical task document location and update/revision captured:
+- Snapshot time:
+- Relevant artifact / checkout / branch / commit and uncommitted changes:
 
-- Observation:
-- Hypothesis:
-- Bounded action:
-- Verification result and evidence pointers:
-- Relevant regressions checked / checks still unrun:
-- Requirement map location and remaining requirement IDs:
-- Last independent requirement review and unresolved findings:
+## Reproduce the working state
 
-## Next decision
+- Environment/setup and exact working directory:
+- Running jobs or external operation IDs and how to check their actual state:
+- Current experiment, hypothesis, and last observed result:
+- Evidence/log/replay locations and the versions they describe:
 
-- Continue / Refactor / Rollback / Escalate / Stop:
-- Reason grounded in evidence:
-- Next safe action:
-- Blockers or missing authorization:
+## Recover safely
 
-## Learning handoff
+- Recovery copy / rollback point and verification of availability:
+- In-flight effects to check before retrying:
+- Stale-state checks before resuming writes:
+- Technical context needed for the work ID selected in LOOP.md:
 
-- Reusable executable or process improvement, if supported:
-- Project-judgment candidate and supporting evidence, if any:
-- Optional Ethos status: unavailable / not needed / needs clarification / reconciled
-- Changed authority or evidence needing clarification (if any):
-- Superseded guidance reconciled:
+Do not copy overall status, requirement statuses, the work list, or next-action ownership here. If observations conflict with LOOP.md, verify actual state and update the canonical record before proceeding; a snapshot cannot overrule later user instructions. Omit secrets and unnecessary logs.

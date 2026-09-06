@@ -11,8 +11,8 @@ description: Autonomous task orchestrator that turns requirements into verified 
 
 Read this entrypoint completely into context before acting; if a tool truncates it, retrieve the remaining sections. A command that discards the output does not load instructions. Load the relevant references at the decision that requires them.
 
-1. Before execution, create or locate the independent document for this user task, including small tasks. Read [references/memory-compression.md](references/memory-compression.md) for task identity, location, and continuation rules. Preserve the original outcome and acceptance baseline, with stable requirement IDs, source, implementation/deliverable, verifier, evidence, and status. Use [templates/LOOP.md](templates/LOOP.md) or an equivalent dedicated task document; conversation context alone is not the task record.
-2. Turn every discovered in-scope gap into remaining work with a next action and owner. A coarse whole is a milestone; keep executing until the requested whole is verified. Preserve this list across delegation and context boundaries.
+1. Before execution, create or locate the independent document for this user task, including small tasks. Read [references/memory-compression.md](references/memory-compression.md) for task identity, location, and continuation rules. Preserve the original outcome and acceptance baseline, with stable requirement IDs, source, implementation/deliverable, verifier, evidence, and status. Read and strictly instantiate [templates/LOOP.md](templates/LOOP.md) as LOOP.md, with a list-based dynamic work list and localized headings and prose. Equivalent alternative task documents are not allowed; conversation context alone is not the task record.
+2. Maintain a dynamic work list linked to the stable requirement IDs, following [references/memory-compression.md](references/memory-compression.md). Turn discovered gaps into implementation or verification work; keep reasons and coverage when splitting, replacing, cancelling, or reopening items. A coarse whole is a milestone; preserve the list across delegation and context boundaries and continue until the requested whole is verified.
 3. Before delivery, read [references/verification.md](references/verification.md) and reconcile every requirement against the final result. Evidence must demonstrate that requirement, not merely a related component. Send missing or failed items back to execution; do not end a Goal loop with an actionable in-scope backlog disguised as caveats or follow-up suggestions.
 4. Finish successfully only after the completion gate passes. Respect cancellation and explicit budget/deadline limits immediately; save an accurately labelled incomplete checkpoint when permitted. For a genuine external blocker, finish independent authorized work before reporting the blocked remainder. Task size, effort already spent, and a passing subset of checks do not reduce scope. An actual context/handoff boundary requires a resumable checkpoint, not a claim of completion.
 
@@ -54,7 +54,7 @@ Default to a **Goal loop** for delivery requests. Explicit planning, review, dia
 
 Use [references/patterns.md](references/patterns.md) for mode selection: **Turn** for a bounded experiment with human direction, **Goal** for verifiable delivery, **Time / Event** for explicitly authorized scheduled or triggered runs, and **Continual learning** for improvements evaluated against real feedback and historical cases. A mode does not itself create a background job or expand authorization.
 
-Every user task has its own document containing the observable goal, verifier, relevant baseline, constraints, status, and next action. Small tasks use a compact document, not an exemption. Keep current state in that document; add [templates/STATE.md](templates/STATE.md) alongside it only when a separate recovery snapshot is useful. Read [references/memory-compression.md](references/memory-compression.md) before creating, selecting, or resuming a task record.
+Every user task has its own document containing the original goal, authorized changes, acceptance requirements, dynamic work list, constraints, overall status, and next action. Small tasks fill the same template concisely, retaining its structure and fields. Keep these authoritative in LOOP.md; add [templates/STATE.md](templates/STATE.md) only for technical recovery details. Read [references/memory-compression.md](references/memory-compression.md) before creating, selecting, maintaining, or resuming a task record.
 
 ## 0. Core engineering principles
 
@@ -673,7 +673,7 @@ Normally include:
 
 Do not require the user to read internal task graphs, agent conversations, retry history, or process lessons unless they ask.
 
-Do not finish with only a plan when implementation was requested. Mention project evolution when an authority changed or an available Ethos skill needs clarification about consequential evidence. Missing Ethos needs no final-response caveat. Before handing off interrupted or multi-session work, save a compact checkpoint with evidence and the next safe action using [templates/STATE.md](templates/STATE.md). An exhausted budget or blocked verifier is not successful delivery.
+Do not finish with only a plan when implementation was requested. Mention project evolution when an authority changed or an available Ethos skill needs clarification about consequential evidence. Missing Ethos needs no final-response caveat. Before handing off interrupted or multi-session work, update LOOP.md with requirement evidence, the work list, status, and next safe action; add [templates/STATE.md](templates/STATE.md) only for technical recovery details. An exhausted budget or blocked verifier is not successful delivery.
 
 ## Supporting references
 
