@@ -11,7 +11,9 @@ Ethos is an independent plugin that automatically evaluates and integrates quali
 
 ## Operating principle
 
-Detect learning continuously and canonicalize it conservatively. A qualifying insight should improve an existing source of truth. It should not become another detached note merely because it is new.
+Use implicit Skill selection for qualifying signals and canonicalize conservatively within the existing task. A qualifying insight should improve an existing source of truth. It should not become another detached note merely because it is new.
+
+Protect the main conversation: do not inject recurring learning reminders, synthetic user messages, or force continuation after the answer. Keep routine screening internal and report only a material knowledge change concisely with the task result. Skill selection is opportunistic; it does not guarantee a separate check on every turn.
 
 The loop is:
 
@@ -114,6 +116,6 @@ After an update:
 3. Run relevant validation for any modified Skill, configuration, or executable policy.
 4. Report the distilled insight, its authority, and whether existing guidance was revised, replaced, or retired.
 
-When a later task uses an established rule, verify its conditions still apply and compare the outcome with its rationale. A counterexample triggers reconciliation, not automatic reversal. Report a material conflict or knowledge change; routine application and candidate housekeeping stay quiet. If a Hook requests a completion pass, review any unprocessed evidence once; do not repeat writes, questions, or the original answer when nothing changed. A pending clarification or unavailable write permission is an honest completion state, not a reason to retry indefinitely.
+When a later task uses an established rule, verify its conditions still apply and compare the outcome with its rationale. A counterexample triggers reconciliation, not automatic reversal. Report a material conflict or knowledge change; routine application and candidate housekeeping stay quiet. Complete any relevant learning before the existing task response; do not start an extra turn for learning. A pending clarification or unavailable write permission is an honest completion state, not a reason to retry indefinitely.
 
 When no candidate qualifies, remain silent about the loop and complete the user's task normally.

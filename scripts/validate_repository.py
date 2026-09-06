@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import json
-import os
 import re
 import subprocess
 import sys
@@ -13,8 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SEMVER = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?$")
 PLUGIN_SPECS = {
-    "ethos": {"path": Path("ethos/plugins/ethos"), "skill": "ethos", "hook": True},
-    "loop": {"path": Path("loop"), "skill": "loop", "hook": False},
+    "ethos": {"path": Path("ethos/plugins/ethos"), "skill": "ethos"},
+    "loop": {"path": Path("loop"), "skill": "loop"},
 }
 FORBIDDEN_NAMES = {".DS_Store", ".env", ".npmrc", ".pypirc", ".netrc", "Thumbs.db", "credentials.json"}
 FORBIDDEN_SUFFIXES = {".key", ".p12", ".pfx", ".jks", ".keystore", ".pem", ".log", ".swp", ".swo", ".temp", ".tmp"}
@@ -73,31 +72,6 @@ def skill_frontmatter(path: Path) -> dict[str, str]:
     return {key.strip(): value.strip() for key, value in (line.split(":", 1) for line in text[4:end].splitlines() if ":" in line)}
 
 
-def validate_hook(path: Path) -> None:
-    hooks = load_json(path)
-    require(isinstance(hooks, dict), "hooks manifest must be a JSON object")
-    for event in ("UserPromptSubmit", "Stop"):
-        try:
-            hook = hooks["hooks"][event][0]["hooks"][0]
-            command = hook["commandWindows" if os.name == "nt" else "command"]
-            for platform_command in (hook["command"], hook["commandWindows"]):
-                require(isinstance(platform_command, str) and "PLUGIN_ROOT" in platform_command and "ethos_hook.py" in platform_command, "invalid Ethos hook command")
-        except (KeyError, IndexError, TypeError) as error:
-            raise ValidationError(f"hooks.json must define cross-platform {event} commands") from error
-        payload = {"hook_event_name": event, "cwd": str(ROOT), "stop_hook_active": False}
-        result = subprocess.run(command, cwd=ROOT, shell=True, env={**os.environ, "PLUGIN_ROOT": str(path.parent.parent)}, input=json.dumps(payload), check=True, capture_output=True, text=True, timeout=5)
-        output = json.loads(result.stdout)
-        if event == "UserPromptSubmit":
-            hook_output = output.get("hookSpecificOutput", {})
-            require(hook_output.get("hookEventName") == event, "hook event name is inconsistent")
-            require(isinstance(hook_output.get("additionalContext"), str) and "$ethos" in hook_output["additionalContext"], "hook context must invoke Ethos")
-        else:
-            require(output.get("decision") == "block" and "$ethos" in output.get("reason", ""), "Stop must request a final Ethos pass")
-            payload["stop_hook_active"] = True
-            result = subprocess.run(command, cwd=ROOT, shell=True, env={**os.environ, "PLUGIN_ROOT": str(path.parent.parent)}, input=json.dumps(payload), check=True, capture_output=True, text=True, timeout=5)
-            require(json.loads(result.stdout) == {}, "Stop continuation must finish without looping")
-
-
 def validate_plugin(name: str, spec: dict[str, object]) -> None:
     plugin_root = ROOT / spec["path"]
     manifest = load_json(plugin_root / ".codex-plugin/plugin.json")
@@ -125,8 +99,9 @@ def validate_plugin(name: str, spec: dict[str, object]) -> None:
         runtime = skill_root / "scripts/loop_runtime.py"
         compile(runtime.read_text(encoding="utf-8"), str(runtime), "exec")
         subprocess.run([sys.executable, str(runtime), "--help"], cwd=ROOT, check=True, capture_output=True, text=True, timeout=5)
-    if spec["hook"]:
-        validate_hook(plugin_root / "hooks/hooks.json")
+    # Learning uses implicit Skill selection; lifecycle hooks must not inject context.
+    if name == "ethos":
+        require("hooks" not in manifest and not (plugin_root / "hooks").exists(), "Ethos must not register lifecycle hooks")
 
 
 def main() -> int:
