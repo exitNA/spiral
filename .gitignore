@@ -1,0 +1,54 @@
+# Operating-system and editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+.pypirc
+.netrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+credentials.*.json
+service-account*.json
+secrets/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Node and generated output
+node_modules/
+coverage/
+dist/
+build/
+
+# Logs, caches, temporary files, and local scan output
+*.log
+*.tmp
+*.temp
+.cache/
+tmp/
+temp/
+gitleaks-report.*

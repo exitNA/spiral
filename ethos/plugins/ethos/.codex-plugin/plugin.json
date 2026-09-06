@@ -1,0 +1,31 @@
+{
+  "name": "ethos",
+  "version": "0.1.0",
+  "description": "Deliver software end to end and evolve durable project judgment through the complementary Loop and Ethos skills.",
+  "author": {
+    "name": "Mark"
+  },
+  "keywords": [
+    "ethos",
+    "loop",
+    "project-learning",
+    "knowledge",
+    "decisions",
+    "continuous-improvement"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ethos",
+    "shortDescription": "Deliver outcomes and evolve coherent project judgment.",
+    "longDescription": "Ethos couples two entry points: $loop owns intent-to-verified-code delivery, while $ethos integrates durable intent, taste, decisions, and proven practice into the repository's knowledge system.",
+    "developerName": "Mark",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use $loop to deliver this change end to end.",
+      "Use $ethos to integrate durable learning from this work."
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ethos"
+  short_description: "Distill durable project judgment into coherent knowledge"
+  default_prompt: "Use $ethos to integrate durable learning from this work into the project's current mental model."
+policy:
+  allow_implicit_invocation: true
