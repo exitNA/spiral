@@ -8,7 +8,7 @@
       "name": "ethos",
       "source": {
         "source": "local",
-        "path": "./ethos/plugins/ethos"
+        "path": "./ethos"
       },
       "policy": {
         "installation": "AVAILABLE",

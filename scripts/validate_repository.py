@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SEMVER = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?$")
 PLUGIN_SPECS = {
-    "ethos": {"path": Path("ethos/plugins/ethos"), "skill": "ethos"},
+    "ethos": {"path": Path("ethos"), "skill": "ethos"},
     "loop": {"path": Path("loop"), "skill": "loop"},
 }
 FORBIDDEN_NAMES = {".DS_Store", ".env", ".npmrc", ".pypirc", ".netrc", "Thumbs.db", "credentials.json"}

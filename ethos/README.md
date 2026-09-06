@@ -37,11 +37,11 @@ Ethos stores distilled project knowledge in the target repository’s `.proj-eth
 
 Distilled knowledge follows the user's preferred language; English is used only when no preference is set. This applies to headings and prose, while filenames such as `SOUL.md` remain stable.
 
-Unconfirmed, decision-relevant evidence can survive conversations in `.proj-ethos/.local/candidates.md`, excluded from Git by its own directory's `.gitignore`. It is bounded and expires under the [candidate lifecycle](plugins/ethos/skills/ethos/references/candidates.md). It is never a source of instructions and is not transferred across machines or worktrees. Confirmed meaning moves into the appropriate authority and its candidate is removed. A recurring choice only becomes a preference when its conditions and rationale are supported; frequency alone is insufficient.
+Unconfirmed, decision-relevant evidence can survive conversations in `.proj-ethos/.local/candidates.md`, excluded from Git by its own directory's `.gitignore`. It is bounded and expires under the [candidate lifecycle](skills/ethos/references/candidates.md). It is never a source of instructions and is not transferred across machines or worktrees. Confirmed meaning moves into the appropriate authority and its candidate is removed. A recurring choice only becomes a preference when its conditions and rationale are supported; frequency alone is insufficient.
 
 ## Source layout
 
-The marketplace lives at `.agents/plugins/marketplace.json` in the Spiral repository root. The Ethos package is under `ethos/plugins/ethos/` and contains its manifest and `skills/ethos/`. Loop is packaged separately under `loop/`.
+The marketplace lives at `.agents/plugins/marketplace.json` in the Spiral repository root. The Ethos package is under `ethos/` and contains its manifest and `skills/ethos/`. Loop is packaged separately under `loop/`.
 
 ## Validate
 
