@@ -53,3 +53,5 @@ tmp/
 temp/
 gitleaks-report.*
 .proj-ethos/
+docs/
+.loop/
