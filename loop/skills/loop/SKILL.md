@@ -1,11 +1,22 @@
 ---
 name: loop
-description: Autonomous software development orchestrator for rapid intent-to-verified-code delivery. Invoke with "$loop <need>" even when the need is brief or incomplete. Determine project lifecycle stage before making compatibility decisions, expand intent from repository context, choose production-grade mainstream technology, execute end to end with adaptive multi-agent delegation, optimize for short feedback loops and wall-clock efficiency, verify independently, repair defects, and learn compact process lessons. The user should not need to describe the process, request retries, enumerate tests, or provide a full PRD.
+description: Autonomous task orchestrator that turns requirements into verified outcomes. Invoke explicitly with "$loop" followed by the desired outcome, even when the need is brief or incomplete. Clarify and expand requirements from available context, execute end to end with adaptive multi-agent delegation, verify against task-appropriate acceptance criteria, repair gaps, and learn compact process lessons.
 ---
 
-# Loop — Autonomous Software Development Orchestrator
+# Loop — Autonomous Task Orchestrator
 
-`$loop` is the execution contract. The text after `$loop` describes the desired outcome; it does **not** need to describe how the development process should work.
+`$loop` is the execution contract. The text after `$loop` describes the desired outcome; it does **not** need to describe how the execution process should work.
+
+## Required execution contract
+
+Read this entrypoint completely into context before acting; if a tool truncates it, retrieve the remaining sections. A command that discards the output does not load instructions. Load the relevant references at the decision that requires them.
+
+1. Before execution, create or locate the independent document for this user task, including small tasks. Read [references/memory-compression.md](references/memory-compression.md) for task identity, location, and continuation rules. Preserve the original outcome and acceptance baseline, with stable requirement IDs, source, implementation/deliverable, verifier, evidence, and status. Use [templates/LOOP.md](templates/LOOP.md) or an equivalent dedicated task document; conversation context alone is not the task record.
+2. Turn every discovered in-scope gap into remaining work with a next action and owner. A coarse whole is a milestone; keep executing until the requested whole is verified. Preserve this list across delegation and context boundaries.
+3. Before delivery, read [references/verification.md](references/verification.md) and reconcile every requirement against the final result. Evidence must demonstrate that requirement, not merely a related component. Send missing or failed items back to execution; do not end a Goal loop with an actionable in-scope backlog disguised as caveats or follow-up suggestions.
+4. Finish successfully only after the completion gate passes. Respect cancellation and explicit budget/deadline limits immediately; save an accurately labelled incomplete checkpoint when permitted. For a genuine external blocker, finish independent authorized work before reporting the blocked remainder. Task size, effort already spent, and a passing subset of checks do not reduce scope. An actual context/handoff boundary requires a resumable checkpoint, not a claim of completion.
+
+For replacement, porting, or migration work, read [references/migration-parity.md](references/migration-parity.md) before changing or deleting the old implementation. This applies to pre-production projects too: removing an obsolete implementation does not authorize removing requested capabilities.
 
 Examples:
 
@@ -15,7 +26,9 @@ Examples:
 - `$loop 增加用户导出功能`
 - `$loop 按照 PRD 完成开发`
 
-For all of these, take ownership of the engineering work end to end unless the user explicitly narrows the scope.
+Other examples include `$loop 调研这些方案并给出有来源的比较`, `$loop 分析这份表格并制作汇报演示文稿`, and `$loop 整理这些资料，写成一份报告`.
+
+For all of these, take ownership of the requested work end to end unless the user explicitly narrows the scope.
 
 The user should not need to add instructions such as:
 
@@ -33,15 +46,19 @@ Those are internal responsibilities of `$loop`.
 
 ## Loop mode and boundaries
 
-Default to a **Goal loop** for implementation requests. Explicit planning, review, diagnosis, or advice requests remain bounded to that outcome; the implementation steps below apply only when implementation is in scope.
+Loop is a general-purpose task orchestrator. Use relevant tools and specialist skills for the requested deliverable. A repository is optional; use supplied materials and available task context when none exists.
+
+Apply the execution cycle to the task: understand intent, define acceptance evidence, establish a coarse whole, execute, verify, repair, and deliver. Throughout this skill and its references, software-specific instructions (repository preflight, lifecycle, architecture, migrations, stack selection, logging, builds, and code tests) apply only when the task involves that software concern. For other tasks, use appropriate checks such as source support, calculation reconciliation, artifact rendering, content coverage, or observed app state.
+
+Default to a **Goal loop** for delivery requests. Explicit planning, review, diagnosis, or advice requests remain bounded to that outcome; the implementation steps below apply only when implementation is in scope.
 
 Use [references/patterns.md](references/patterns.md) for mode selection: **Turn** for a bounded experiment with human direction, **Goal** for verifiable delivery, **Time / Event** for explicitly authorized scheduled or triggered runs, and **Continual learning** for improvements evaluated against real feedback and historical cases. A mode does not itself create a background job or expand authorization.
 
-Before substantial execution, define the observable goal, verifier, regression baseline, constraints, and stopping conditions. For multi-session work, use [templates/LOOP.md](templates/LOOP.md) and [templates/STATE.md](templates/STATE.md) in an existing task-state location. Small tasks need no extra files. Read [references/memory-compression.md](references/memory-compression.md) when saving or resuming state.
+Every user task has its own document containing the observable goal, verifier, relevant baseline, constraints, status, and next action. Small tasks use a compact document, not an exemption. Keep current state in that document; add [templates/STATE.md](templates/STATE.md) alongside it only when a separate recovery snapshot is useful. Read [references/memory-compression.md](references/memory-compression.md) before creating, selecting, or resuming a task record.
 
 ## 0. Core engineering principles
 
-Apply these principles to every `$loop` run unless a higher-authority repository or user instruction overrides them:
+Apply these principles where relevant to the task unless a higher-authority repository or user instruction overrides them:
 
 - **Coarse-to-fine convergence** — work like drawing: establish the whole shape first, validate direction early, then progressively refine local detail. Do not spend deeply on one component while the overall architecture, main flow, or product direction remains unproven.
 - **Lifecycle stage before compatibility** — determine whether the product is actually deployed to production before preserving historical behavior. Repository age or code volume does not define project maturity.
@@ -61,7 +78,7 @@ Treat a short user request as an **intent**, not as an incomplete prompt that mu
 Default behavior:
 
 1. understand the outcome the user is asking for;
-2. inspect repository context before asking routine questions;
+2. inspect available task context before asking routine questions;
 3. expand the short request into an internal working specification;
 4. infer ordinary missing details from existing behavior, tests, docs, architecture, UI patterns, and project conventions;
 5. choose conservative, reversible defaults for minor ambiguity;
@@ -95,12 +112,12 @@ Never override a higher-authority source with a lower-authority inference.
 
 ## 3. Internal intent expansion
 
-Before significant implementation, silently construct a compact **Intent Spec**. It is an internal execution artifact, not something the user must provide.
+Before significant execution, silently construct a compact **Intent Spec**. It is an internal execution artifact, not something the user must provide.
 
 Include only what is needed:
 
 - **Goal** — observable user/product outcome.
-- **Current state** — how the relevant code behaves now.
+- **Current state** — relevant materials, artifacts, system behavior, or workflow now.
 - **Desired state** — what must change.
 - **Scope** — affected surfaces and explicit/implicit boundaries.
 - **Acceptance evidence** — how completion can be objectively demonstrated.
@@ -109,7 +126,7 @@ Include only what is needed:
 - **Assumptions** — inferred details that affect implementation.
 - **Open decisions** — only genuinely non-inferable decisions.
 
-For PRD-based work, derive stable requirement IDs such as `R1`, `R2`, ... and map each to implementation and verification evidence.
+For PRD-based work, derive stable requirement IDs such as `R1`, `R2`, ... and map each to implementation and verification evidence. Keep source requirements distinguishable from the agent's inferred choices; record later user-authorized scope changes against the affected IDs.
 
 For a short feature request, derive the equivalent acceptance criteria without inventing unrelated features.
 
@@ -568,9 +585,9 @@ Signals include large amounts of detailed code before the main flow runs, repeat
 
 Never use subjective statements such as "100% confident" as the completion criterion.
 
-Completion is based on observable evidence appropriate to the repository and request.
+Completion is based on observable evidence appropriate to the task and requested deliverable.
 
-Default gates:
+Apply only the gates relevant to the task; software checks are conditional on software work:
 
 - the user's desired outcome and all in-scope derived/explicit requirements are fulfilled; for implementation requests, the behavior is implemented;
 - relevant build/type/lint/static/schema checks pass;
@@ -589,6 +606,8 @@ Default gates:
 - optional Ethos integration does not gate delivery; evaluate completion against the requested outcome and verification evidence.
 
 For substantial work, use an independent checker when available. If independent agents are unavailable, run objective verifiers and a separate review pass, preserve requirement coverage, and disclose the review limitation instead of claiming independent agent review.
+
+Apply the completion decision in [references/verification.md](references/verification.md) to the final integrated result. Preliminary inventory or build assistance does not substitute for final requirement review.
 
 Verification preference:
 
@@ -646,7 +665,7 @@ Keep the final answer concise. The user asked for an outcome, not a transcript o
 
 Normally include:
 
-1. **Outcome** — what is now implemented/fixed.
+1. **Outcome** — what was completed or delivered.
 2. **Important changes** — only major surfaces.
 3. **Verification** — concrete checks/results.
 4. **Material assumptions / remaining blockers** — only if any.

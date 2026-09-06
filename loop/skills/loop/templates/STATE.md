@@ -1,5 +1,6 @@
 # Loop state
 
+- Task ID (same as the canonical task document):
 - Updated:
 - Status: active / blocked / complete / cancelled / budget exhausted
 - Contract location:
@@ -12,6 +13,8 @@
 - Bounded action:
 - Verification result and evidence pointers:
 - Relevant regressions checked / checks still unrun:
+- Requirement map location and remaining requirement IDs:
+- Last independent requirement review and unresolved findings:
 
 ## Next decision
 

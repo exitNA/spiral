@@ -11,13 +11,15 @@
 
 ## PRD traceability
 
-Every requirement should end with an evidence mapping, conceptually:
+For every task, establish the mapping in its dedicated task document before execution and maintain it through final review; small tasks may use a short list. Link existing requirement matrices as baselines. Every original requirement and discovered in-scope gap must remain accounted for, conceptually:
 
-| Requirement | Implementation | Verification | Status |
+| ID / source requirement | Implementation / deliverable | Verifier and actual evidence | Status / next action / owner |
 |---|---|---|---|
-| R1 | files/modules | tests/checks | pass |
+| R1 / original request | files or artifact section | observed outcome and evidence location | verified, or remaining work |
 
 Do not leave a requirement green only because code exists; verify its acceptance condition.
+
+Use pending, implemented-but-unverified, failed, blocked, or verified as appropriate. An exclusion needs its authorizing user instruction or evidence that it was never in scope. Preserve the original baseline when updating architecture, documentation, or test commands. A newly shortened checklist cannot retroactively satisfy omitted requirements.
 
 ## Regression-first repair
 
@@ -33,6 +35,8 @@ When a concrete failure is reproducible:
 ## Independent review
 
 A reviewer should inspect the diff and requirements from a fresh role/context.
+
+At final review, supply the original request, baseline requirements, explicit scope changes, final artifact/version, and evidence map. The reviewer checks missing capabilities and removed/weakened checks before code quality. Return uncovered IDs to an implementation owner, repair them, and recheck affected requirements. A read-only inventory completed before implementation is not final review.
 
 Reviewer output should prioritize findings by severity and include concrete file/symbol references when possible.
 
@@ -52,6 +56,19 @@ A substantial run is complete only when:
 - new failures found during the run are resolved or explicitly blocked;
 - independent review has no unresolved blocking findings;
 - the final integrated state, not only individual worker branches, is verified.
+
+Decide from the requirement map:
+
+| Observed state | Required next action |
+| --- | --- |
+| In-scope capability missing, failed, or unverified; useful authorized work remains | Continue implementation or verification; assign the next action. |
+| Every in-scope requirement has relevant final-state evidence and no blocking review finding remains | Deliver as complete. |
+| Genuine external blocker after independent work is exhausted | Save evidence, remaining IDs, blocker, and next safe action; report blocked, not complete. |
+| User cancels, an explicit budget/deadline ends, or an actual session boundary prevents continuation | Save an incomplete checkpoint and recovery instructions; do not redefine the goal. |
+
+Before sending a final answer, compare any proposed "remaining work" with the original scope. Required work still actionable sends the loop back to execution. Optional enhancements outside that scope may be reported without extending the task. Never invent a time limit or request permission merely to continue already-authorized work.
+
+For UI replacements, test user actions through the new UI and their visible results, persistence, and important error paths. Core tests establish core behavior; compilation establishes buildability. Neither alone verifies settings forms, querying/filtering, export, or platform interactions. If UI execution is unavailable, finish independently testable work and identify the unverified requirements and actual environmental limitation.
 
 ## No endless polish
 

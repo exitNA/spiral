@@ -1,21 +1,21 @@
 {
   "name": "loop",
-  "version": "0.1.0",
-  "description": "Autonomous software development orchestration for rapid intent-to-verified-code delivery.",
+  "version": "0.2.0",
+  "description": "Autonomous task orchestrator that turns requirements into verified outcomes.",
   "author": {
     "name": "Mark"
   },
   "keywords": [
     "loop",
-    "software-development",
+    "task-execution",
     "orchestration",
     "verification"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Loop",
-    "shortDescription": "Tell Loop what you want; it owns the development process.",
-    "longDescription": "Loop expands a brief request into a verified software-delivery outcome, coordinating implementation, testing, review, repair, and learning.",
+    "shortDescription": "Tell Loop what you want; it owns the execution process.",
+    "longDescription": "Loop turns requirements into verified outcomes, coordinating execution, task-appropriate verification, review, repair, and learning.",
     "developerName": "Mark",
     "category": "Productivity",
     "capabilities": [
