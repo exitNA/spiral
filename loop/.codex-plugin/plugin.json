@@ -23,6 +23,9 @@
     ],
     "defaultPrompt": [
       "Use $loop to complete this request end to end."
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png",
+    "brandColor": "#20252B"
   }
 }

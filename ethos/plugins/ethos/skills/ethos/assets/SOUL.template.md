@@ -30,6 +30,6 @@ Keep only practices supported by project experience and likely to influence futu
 
 Include only unresolved tensions that materially affect future decisions. Remove them when resolved and integrate the resolution above or in an ADR.
 
-## Decision Index
+## Knowledge Index
 
-Link only consequential ADRs or decision documents whose rationale remains useful.
+Link only existing authorities: `CONTEXT.md` for domain meaning, `topics/<topic>.md` for detailed guidance, and `decisions/NNNN-short-title.md` for consequential rationale. Use relative links and omit unused entries.

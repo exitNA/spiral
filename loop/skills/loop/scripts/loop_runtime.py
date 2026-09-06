@@ -155,7 +155,7 @@ def task_summary(events: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], di
         "success": len(successes),
         "failed": len(failed),
         "blocked": len(blocked),
-        "first_pass_success_rate": round((len([t for t in successes if t["rework"] == 0]) / len(successes)), 3) if successes else None,
+        "first_pass_success_rate": round((len([t for t in successes if t["rework"] == 0]) / len(completed)), 3) if completed else None,
         "rework_rate": round((len(reworked) / len(completed)), 3) if completed else None,
         "conflicts": conflicts,
         "task_runtime_sum_sec": round(sum(timed), 1),

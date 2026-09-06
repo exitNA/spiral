@@ -1,13 +1,12 @@
 {
   "name": "ethos",
   "version": "0.1.0",
-  "description": "Deliver software end to end and evolve durable project judgment through the complementary Loop and Ethos skills.",
+  "description": "Automatically evolve durable project judgment across conversations and implementation work.",
   "author": {
     "name": "Mark"
   },
   "keywords": [
     "ethos",
-    "loop",
     "project-learning",
     "knowledge",
     "decisions",
@@ -16,16 +15,18 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Ethos",
-    "shortDescription": "Deliver outcomes and evolve coherent project judgment.",
-    "longDescription": "Ethos couples two entry points: $loop owns intent-to-verified-code delivery, while $ethos integrates durable intent, taste, decisions, and proven practice into the repository's knowledge system.",
+    "shortDescription": "Automatically maintain coherent project judgment.",
+    "longDescription": "Ethos independently detects and integrates durable intent, taste, decisions, and proven practice into repository knowledge. It works in ordinary conversations, supports explicit invocation, and can optionally cooperate with Loop.",
     "developerName": "Mark",
     "category": "Productivity",
     "capabilities": [
       "Write"
     ],
     "defaultPrompt": [
-      "Use $loop to deliver this change end to end.",
       "Use $ethos to integrate durable learning from this work."
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png",
+    "brandColor": "#A84B35"
   }
 }

@@ -67,4 +67,4 @@ Reproduce first. Locate client/server/proxy limits, streaming/buffering behavior
 
 ## Established project judgment
 
-Consult relevant project doctrine, mind, taste, and accepted decisions before inferring routine behavior. Explicit current user instructions remain authoritative. When feedback suggests a consequential durable shift, distinguish a local exception from a project-wide change and route the evidence to Ethos; do not silently rewrite the project's judgment from an inference.
+Consult relevant project doctrine, mind, taste, and accepted decisions before inferring routine behavior. Explicit current user instructions remain authoritative. When feedback suggests a consequential durable shift, distinguish a local exception from a project-wide change and optionally route the evidence to an available Ethos skill; do not silently rewrite the project's judgment from an inference.

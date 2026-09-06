@@ -79,4 +79,4 @@ If independent agents are unavailable, use objective checks and a separate revie
 
 ## Learning and continuity
 
-Before completion, qualifying project-judgment candidates must be reconciled through Ethos or explicitly marked pending. A run need not produce knowledge changes. For a handoff, record the contract, current evidence, remaining uncertainty, and next safe action; telemetry alone is not a resumable task specification.
+Ethos integration is optional and does not gate delivery. When available, Ethos evaluates qualifying project-judgment candidates; when absent, complete the requested work without creating a pending integration requirement. A run need not produce knowledge changes. For a handoff, record the contract, current evidence, remaining uncertainty, and next safe action; telemetry alone is not a resumable task specification.

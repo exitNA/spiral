@@ -20,14 +20,14 @@ At a session or context boundary, save a checkpoint before handing off. Do not r
 
 Prefer a regression test, explicit contract, or tooling correction over a prose reminder when the behavior is machine-checkable. Promote execution lessons when repeated, strongly evidenced, or needed to prevent a serious recurring defect. One incidental failure is not a universal rule.
 
-For project-judgment candidates, pass Ethos:
+When Ethos is available, pass qualifying project-judgment candidates to it:
 
 - the observation and evidence location;
 - the existing authority and judgment it may change;
 - the proposed scope and whether the human made it explicit;
 - uncertainty or conflicts that still need resolution.
 
-Ethos integrates the current model in place. Loop keeps only the handoff status and evidence pointer, not a competing copy of doctrine. If Ethos is unavailable, label the candidate pending rather than canonizing it as established judgment.
+Ethos integrates the current model in place. Loop keeps only the handoff status and evidence pointer, not a competing copy of doctrine. If Ethos is unavailable, skip this optional integration; its absence creates no pending work or delivery blocker.
 
 ## Compress at meaningful boundaries
 

@@ -29,7 +29,7 @@ The objective is not maximum concurrency. The objective is high-quality completi
 
 ### Derived signals
 
-- **first-pass success**: tasks completed without repair / completed tasks;
+- **first-pass success**: successful task attempts without repair / all ended task attempts (success, failed, or blocked); an empty run has no rate;
 - **rework rate**: tasks requiring meaningful repair / completed implementation tasks;
 - **parallelism ratio**: sum of overlapping task durations divided by relevant wall span (diagnostic only, not a goal);
 - **coordination smell**: many tiny tasks + high orchestration/merge time;

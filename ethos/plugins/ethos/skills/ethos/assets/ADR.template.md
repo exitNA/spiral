@@ -7,7 +7,7 @@
 
 ## Project Judgment Context
 
-Which current Project Mind assumptions, Taste rules, constraints, or human direction make this decision necessary?
+Which current [Project Mind](../SOUL.md) assumptions, Taste rules, constraints, or human direction make this decision necessary?
 
 ## Decision
 

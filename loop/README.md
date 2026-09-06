@@ -310,7 +310,7 @@ Observe → Orient → Hypothesize → Act → Verify
 
 跨会话任务可使用 `templates/LOOP.md` 和 `templates/STATE.md` 保存任务契约和恢复快照。运行脚本负责过程统计，模板负责下一次能够继续工作，两者不能互相替代。
 
-优先使用已安装、可发现的 Ethos。当前工作区可读取 `../ethos/plugins/ethos/skills/ethos/SKILL.md`。单独移动或安装 Loop 后，需要提供 Ethos 才能完成项目判断的长期整合；缺失时继续开发并保留待整合候选。
+Loop 与 Ethos 是两个独立插件。通过当前技能目录发现可用的 Ethos 后，Loop 可以使用它沉淀项目心智；Ethos 也会在普通对话和开发过程中自动识别并整合高置信学习。未安装 Ethos 时，Loop 正常完成开发与验证，不产生待整合任务，也不要求安装。
 
 ## 目录
 
@@ -323,21 +323,16 @@ Observe → Orient → Hypothesize → Act → Verify
 
 本版以找回的 `loop-bak/` 为基础，合入此前重建的学习和 Ethos 协作能力。详细来源见 [合并依据](references/sources.md)。
 
-## 推荐安装
+## 安装独立插件
 
-用户级：
+从 Spiral 仓库根目录注册 marketplace，再安装 Loop：
 
-```text
-~/.agents/skills/loop/
+```bash
+codex plugin marketplace add /path/to/spiral
+codex plugin add loop@spiral
 ```
 
-或者项目级：
-
-```text
-<repo>/.agents/skills/loop/
-```
-
-安装后，用户只需要记住一个接口：
+需要自动沉淀项目心智时，可另外安装 `ethos@spiral`。安装后启动新任务以加载插件。
 
 ```text
 $loop <我想完成的需求>

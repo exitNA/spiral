@@ -24,6 +24,6 @@
 
 - Reusable executable or process improvement, if supported:
 - Project-judgment candidate and supporting evidence, if any:
-- Ethos status: not needed / pending / reconciled
-- Changed authority or pending candidate location:
+- Optional Ethos status: unavailable / not needed / needs clarification / reconciled
+- Changed authority or evidence needing clarification (if any):
 - Superseded guidance reconciled:

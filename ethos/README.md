@@ -1,73 +1,50 @@
 # Ethos
 
-Ethos is a Codex plugin for delivering software and evolving the judgment behind it. It exposes two complementary Skill entry points:
+Ethos is an independent Codex plugin that automatically maintains durable project judgment: intent, mental models, taste, decisions, collaboration norms, and proven engineering practice.
 
-- `$loop <outcome>` owns intent expansion, implementation, verification, repair, and end-to-end delivery.
-- `$ethos` distills durable project intent, mental models, taste, decisions, collaboration norms, and proven practice into the right repository authority.
+During ordinary conversations and implementation work, the Hook reminds the agent to screen for learning. When high-confidence evidence qualifies, the agent loads `$ethos`, reconciles existing knowledge, and integrates the current judgment within active permissions and user/project constraints. No explicit invocation or separate confirmation is needed for routine qualifying updates. Uncertain or conflicting conclusions require clarification; turns with no qualifying learning remain quiet.
 
-Use either Skill directly. During a substantial `$loop` run, Loop calls Ethos when delivery evidence may have changed the project's durable judgment.
-
-## Mental model
-
-- The delivery loop turns intent into verified outcomes.
-- The evolution loop turns durable evidence into better future judgment.
-- The Hook performs cheap learning-candidate detection on each user turn.
-- `$ethos` performs conservative semantic evaluation, reconciliation, routing, and pruning.
-- Project doctrine or `PROJECT-MIND.md` holds the current synthesis; ADRs preserve consequential rationale; code and tooling enforce machine-checkable facts.
-- Process telemetry may improve future scheduling, but checked-in project knowledge remains authoritative.
-
-See [`PROJECT-MIND.md`](PROJECT-MIND.md) for the project's principles and quality bar.
-
-## Repository layout
+Explicit invocation is also available:
 
 ```text
-.agents/plugins/marketplace.json
-plugins/ethos/
-  .codex-plugin/plugin.json
-  hooks/hooks.json
-  skills/
-    ethos/
-    loop/
-```
-
-The repository is both the plugin's source project and a one-plugin Codex marketplace.
-
-## Install from this checkout
-
-```bash
-codex plugin marketplace add /path/to/ethos
-codex plugin add ethos@ethos
-```
-
-## Install from GitHub
-
-After the repository is published:
-
-```bash
-codex plugin marketplace add https://github.com/exitNA/ethos.git
-codex plugin add ethos@ethos
-```
-
-Start a new Codex task after installation so both Skills and the Hook are loaded.
-
-## Use
-
-```text
-$loop 给登录页加上记住密码，并完成验证
 $ethos 把这次架构取舍沉淀成项目今后的判断规则
 ```
 
-`$loop` is explicit-only because invoking it authorizes a full development workflow. `$ethos` supports direct and implicit invocation; the Hook only asks it to evaluate high-confidence learning candidates.
+## Relationship with Loop
+
+Loop and Ethos are separate plugins in the Spiral marketplace. Loop independently owns software delivery and verification. When Ethos is available, Loop may use it to integrate project judgment. Ethos also works without Loop, and its absence does not block Loop or create unfinished work.
+
+See [project mind](../.proj-ethos/SOUL.md) for the project's principles and authority model.
+
+## Install from this checkout
+
+Register the Spiral repository root, then install Ethos:
+
+```bash
+codex plugin marketplace add /path/to/spiral
+codex plugin add ethos@spiral
+```
+
+Optionally install `loop@spiral` for software-delivery orchestration. Start a new Codex task after installation so the Skill and Hook are loaded.
+
+## Project knowledge
+
+Ethos stores distilled project knowledge in the target repository’s `.proj-ethos/`: `SOUL.md` for the current synthesis, `CONTEXT.md` for domain semantics, `decisions/` for consequential rationale, and optional `topics/` for focused guidance. Files are created only when needed. The root `AGENTS.md` points to the project mind; source code, tests, and runtime telemetry remain in their own locations.
+
+Distilled knowledge follows the user's preferred language; English is used only when no preference is set. This applies to headings and prose, while filenames such as `SOUL.md` remain stable.
+
+## Source layout
+
+The marketplace lives at `.agents/plugins/marketplace.json` in the Spiral repository root. The Ethos package is under `ethos/plugins/ethos/` and contains its manifest, Hook, and `skills/ethos/`. Loop is packaged separately under `loop/`.
 
 ## Validate
 
+From the Spiral repository root:
+
 ```bash
 python3 scripts/validate_repository.py
+python3 -m unittest discover -s tests
 gitleaks dir --redact --no-banner .
 ```
 
-The repository validator checks marketplace and plugin metadata, both Skill packages, the executable Hook protocol, Loop runtime syntax, stable release versioning, and dangerous committed filenames. GitHub Actions runs the same validation and scans full Git history with Gitleaks.
-
-## Development status
-
-Version `0.1.0` establishes the integrated Loop/Ethos model, automatic learning detection, project knowledge templates, process telemetry, cross-platform Hook commands, and standard marketplace packaging. Broader behavioral scenario coverage remains release-hardening work.
+Repository validation checks marketplace and plugin metadata, Skill packages, POSIX Hook output, runtime syntax, stable release versions, and file hygiene. Regression tests cover runtime statistics. Windows Hook execution and automatic learning quality still require runtime scenario validation.

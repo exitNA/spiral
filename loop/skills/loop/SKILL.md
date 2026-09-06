@@ -52,7 +52,7 @@ Apply these principles to every `$loop` run unless a higher-authority repository
 - **Observable software** — every executable application/service must have useful logging to both console and text files unless the platform makes persistent files inappropriate.
 - **Contemporary product quality** — UI and UX choices should follow current mainstream product/design practice and accessibility expectations, not legacy-looking defaults.
 - **Project judgment guides delivery** — use established project mind, taste, and decisions for routine choices. Generic engineering defaults yield to explicit user/project direction.
-- **Project evolution through Ethos** — recognize durable feedback during human collaboration and development; Ethos reconciles it into the project's existing knowledge authorities.
+- **Project evolution through Ethos** — recognize durable feedback during human collaboration and development; when available, Ethos reconciles it into the project's existing knowledge authorities.
 
 ## 1. User-experience contract
 
@@ -68,7 +68,7 @@ Default behavior:
 6. execute the work, not merely propose a plan;
 7. verify with objective evidence;
 8. repair defects discovered during implementation or review;
-9. evaluate qualifying project-judgment feedback through Ethos as described in section 14;
+9. optionally evaluate qualifying project-judgment feedback through an available Ethos skill as described in section 14;
 10. finish with a concise result and any material assumptions or unresolved blockers.
 
 Do **not** require a PRD. If a PRD/spec exists, use it. If it does not, synthesize the minimum internal specification needed to implement the request well.
@@ -586,7 +586,7 @@ Default gates:
 - UI changes meet current product/design-system and accessibility quality rather than merely rendering successfully;
 - assumptions that materially affect product behavior are surfaced;
 - environmental blockers are distinguished from code/product failures;
-- qualifying project-judgment learning has been reconciled by Ethos or explicitly recorded as pending; routine work may produce no durable update.
+- optional Ethos integration does not gate delivery; evaluate completion against the requested outcome and verification evidence.
 
 For substantial work, use an independent checker when available. If independent agents are unavailable, run objective verifiers and a separate review pass, preserve requirement coverage, and disclose the review limitation instead of claiming independent agent review.
 
@@ -617,9 +617,9 @@ The execution loop and project-judgment loop feed each other:
 
 Use established project mind, taste, and decisions to resolve routine choices. During work, notice user corrections, changes of direction, resolved tradeoffs, recurring friction, and outcomes that challenge prior assumptions.
 
-At meaningful checkpoints, load `$ethos` when such evidence may change durable project judgment. Ethos owns qualification, confidence, reconciliation, authority routing, and pruning. Pass it the observation, supporting evidence, affected existing judgment, and whether the user established a durable rule or a task-local exception. Routine progress and isolated preferences do not automatically become doctrine.
+When Ethos is available, load `$ethos` at meaningful checkpoints when such evidence may change durable project judgment. Ethos also triggers automatically in ordinary conversations and during Loop work. Ethos owns qualification, confidence, reconciliation, authority routing, and pruning. Pass it the observation, supporting evidence, affected existing judgment, and whether the user established a durable rule or a task-local exception. Routine progress and isolated preferences do not automatically become doctrine.
 
-Prefer an available installed Ethos skill. In this workspace its source is `../ethos/plugins/ethos/skills/ethos/SKILL.md`, relative to this skill directory. Resolve that path before reading it. If Ethos is unavailable elsewhere, continue authorized delivery and retain a concise candidate in task state; report that durable integration remains pending. Do not invent a successful handoff or maintain a second project knowledge model inside Loop.
+Discover Ethos through the active skill catalog and use its supplied location. The plugins have no fixed relative installation layout. If Ethos is unavailable, complete delivery normally; its absence is neither a blocker nor unfinished work and requires no pending candidate or installation prompt. Do not claim an integration that did not occur or duplicate Ethos's knowledge model.
 
 Keep execution lessons—such as useful test ordering and conflicting edit boundaries—separate from project intent, domain meaning, and taste. Read [references/memory-compression.md](references/memory-compression.md) when saving state, resuming a run, or promoting learning.
 
@@ -654,7 +654,7 @@ Normally include:
 
 Do not require the user to read internal task graphs, agent conversations, retry history, or process lessons unless they ask.
 
-Do not finish with only a plan when implementation was requested. Mention project evolution only when an authority changed or a consequential learning candidate remains pending. Before handing off interrupted or multi-session work, save a compact checkpoint with evidence and the next safe action using [templates/STATE.md](templates/STATE.md). An exhausted budget or blocked verifier is not successful delivery.
+Do not finish with only a plan when implementation was requested. Mention project evolution when an authority changed or an available Ethos skill needs clarification about consequential evidence. Missing Ethos needs no final-response caveat. Before handing off interrupted or multi-session work, save a compact checkpoint with evidence and the next safe action using [templates/STATE.md](templates/STATE.md). An exhausted budget or blocked verifier is not successful delivery.
 
 ## Supporting references
 

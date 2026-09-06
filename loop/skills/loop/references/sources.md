@@ -6,7 +6,7 @@ This version uses the recovered `loop-bak/` as its authoritative implementation 
 
 - **Recovered baseline:** `loop-bak/SKILL.md`, README, engineering/execution references, agent metadata and templates, and `scripts/loop_runtime.py`. The runtime script and agent templates are preserved unchanged.
 - **Conversation-derived additions:** nine-stage evidence/learning cycle; Turn, Goal, Time/Event, and Continual-learning modes; human outer loop; task contract/state templates; context compression; and project-judgment handoff to Ethos.
-- **Existing Ethos:** prefer a discoverable installed skill; the workspace source is `ethos/plugins/ethos/skills/ethos/SKILL.md`. Ethos remains responsible for durable project judgment rather than duplicating its knowledge model in Loop.
+- **Existing Ethos:** optionally use a skill discoverable through the active catalog; no relative installation layout is assumed. Ethos remains responsible for durable project judgment rather than duplicating its knowledge model in Loop.
 
 The HTML was saved on 2026-09-06 and names an earlier `loop-learning` attachment without its file bodies. The later recovered backup provides concrete source for the development orchestrator, but does not prove byte-for-byte identity with that earlier attachment. This is an intentional merged version, not a claim that every line occurred in the saved conversation.
 
