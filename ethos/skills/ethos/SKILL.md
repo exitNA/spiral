@@ -52,9 +52,9 @@ Candidate maintenance follows the same active permissions and user constraints a
 
 ## Establish project scope
 
-Resolve the repository root and use `<repo>/.proj-ethos/` as the home for project knowledge distilled by Ethos. This is project-owned, versionable source material, not a plugin cache or runtime log. Read the relevant `AGENTS.md`, existing `.proj-ethos/` documents, README, architecture documents, domain glossary, and decisions before writing.
+Resolve the repository root and use `<repo>/.ethos/` as the home for project knowledge distilled by Ethos. This is project-owned, versionable source material, not a plugin cache or runtime log. Read the relevant `AGENTS.md`, existing `.ethos/` documents, README, architecture documents, domain glossary, and decisions before writing.
 
-Read [references/storage-layout.md](references/storage-layout.md) when creating, migrating, or splitting project knowledge. Integrate existing meaning rather than starting a competing authority. Migrate an existing Ethos-owned project mind into `.proj-ethos/` and update its references. Preserve externally owned documentation and link to it; resolve conflicting ownership before moving or duplicating its content.
+Read [references/storage-layout.md](references/storage-layout.md) when creating or splitting project knowledge. Integrate existing meaning rather than starting a competing authority. Preserve externally owned documentation and link to it; resolve conflicting ownership before moving or duplicating its content.
 
 If there is no repository or durable project scope, do not create project artifacts. User-global preferences belong in global guidance or local memories, not in an arbitrary working directory.
 
@@ -70,9 +70,9 @@ Read [references/knowledge-model.md](references/knowledge-model.md) when decidin
 
 Default routing:
 
-- Current project purpose, mental model, principles, taste, collaboration norms, and proven practice → `.proj-ethos/SOUL.md`.
-- Domain vocabulary and semantic boundaries → `.proj-ethos/CONTEXT.md` (link to an externally maintained glossary when it already owns the meaning).
-- A consequential decision whose alternatives and rationale must remain inspectable → `.proj-ethos/decisions/NNNN-short-title.md`. Use [assets/ADR.template.md](assets/ADR.template.md) when the repository has no established ADR format.
+- Current project purpose, mental model, principles, taste, collaboration norms, and proven practice → `.ethos/SOUL.md`.
+- Domain vocabulary and semantic boundaries → `.ethos/CONTEXT.md` (link to an externally maintained glossary when it already owns the meaning).
+- A consequential decision whose alternatives and rationale must remain inspectable → `.ethos/decisions/NNNN-short-title.md`. Use [assets/ADR.template.md](assets/ADR.template.md) when the repository has no established ADR format.
 - A compact instruction that must shape every agent run → the nearest applicable `AGENTS.md`.
 - A reusable multi-step workflow that applies independently of this project's current beliefs → a Skill.
 - Enforceable facts → code, tests, schemas, linters, or configuration rather than prose.
@@ -91,11 +91,11 @@ Skills are the exception, not the default destination.
 
 ## Create or maintain the project mind
 
-When `.proj-ethos/SOUL.md` is the right authority, use [assets/SOUL.template.md](assets/SOUL.template.md) as a shape, not as a requirement to create empty sections. Include only sections with real content.
+When `.ethos/SOUL.md` is the right authority, use [assets/SOUL.template.md](assets/SOUL.template.md) as a shape, not as a requirement to create empty sections. Include only sections with real content.
 
 Ensure the root `AGENTS.md` contains one compact pointer when the project mind exists:
 
-> Read `.proj-ethos/SOUL.md` before product, architecture, UX, collaboration, or engineering-practice decisions. Use `$ethos` when new evidence changes the project's durable judgment.
+> Read `.ethos/SOUL.md` before product, architecture, UX, collaboration, or engineering-practice decisions. Use `$ethos` when new evidence changes the project's durable judgment.
 
 Integrate this pointer with existing instruction-maintenance guidance and avoid duplicates. Do not expand `AGENTS.md` with the detailed knowledge itself.
 

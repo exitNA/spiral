@@ -2,7 +2,7 @@
 
 Use this reference when a learning candidate could fit more than one artifact. The goal is one current model with inspectable rationale, not a collection of notes.
 
-Project knowledge distilled by Ethos lives in `<repo>/.proj-ethos/`. See [storage-layout.md](storage-layout.md) for layout, migration, and splitting rules. Code, operational agent instructions, and reusable skills stay in their native locations.
+Project knowledge distilled by Ethos lives in `<repo>/.ethos/`. See [storage-layout.md](storage-layout.md) for layout, migration, and splitting rules. Code, operational agent instructions, and reusable skills stay in their native locations.
 
 ## Authority map
 
@@ -10,12 +10,12 @@ Project knowledge distilled by Ethos lives in `<repo>/.proj-ethos/`. See [storag
 | --- | --- | --- |
 | Code, tests, schemas, configuration | Enforceable behavior and mechanically discoverable facts | Human rationale, taste, unresolved tradeoffs |
 | `AGENTS.md` | Compact instructions and pointers that must shape every agent run | Detailed doctrine, history, tutorials, task notes |
-| `.proj-ethos/SOUL.md` and linked `topics/` documents | Current synthesis of purpose, mental models, principles, taste, collaboration, and proven practice | Chronological history, tentative observations, command catalogs |
-| `.proj-ethos/CONTEXT.md` or linked externally owned glossary | Domain language, meanings, boundaries, and relationships | General engineering process or historical narrative |
-| `.proj-ethos/decisions/NNNN-short-title.md` | Consequential decision, alternatives, context, rationale, and replacement status | Every implementation choice or the current doctrine as a whole |
+| `.ethos/SOUL.md` and linked `topics/` documents | Current synthesis of purpose, mental models, principles, taste, collaboration, and proven practice | Chronological history, tentative observations, command catalogs |
+| `.ethos/CONTEXT.md` or linked externally owned glossary | Domain language, meanings, boundaries, and relationships | General engineering process or historical narrative |
+| `.ethos/decisions/NNNN-short-title.md` | Consequential decision, alternatives, context, rationale, and replacement status | Every implementation choice or the current doctrine as a whole |
 | Skill | Reusable procedure with distinct triggers and completion criteria | Project-specific beliefs, ordinary facts, isolated preferences |
 | Local memories | Recall and supporting evidence across chats | Mandatory rules or the canonical project record |
-| `.proj-ethos/.local/candidates.md` | Bounded, unconfirmed project evidence in the current checkout | Established rules, shared doctrine, or instructions for product decisions |
+| `.ethos/.local/candidates.md` | Bounded, unconfirmed project evidence in the current checkout | Established rules, shared doctrine, or instructions for product decisions |
 
 ## Maturity model
 

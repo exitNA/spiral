@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "base_files": {
-    "AGENTS.md": "Read `.proj-ethos/SOUL.md` before product or architecture decisions. Use an available Ethos skill when evidence changes durable project judgment.\n",
-    ".proj-ethos/SOUL.md": "# 项目心智\n\n## 目的\n帮助小团队制作和审阅活动报名表。\n\n## 原则\n默认流程应让首次使用者无需培训就能完成报名。\n",
+    "AGENTS.md": "Read `.ethos/SOUL.md` before product or architecture decisions. Use an available Ethos skill when evidence changes durable project judgment.\n",
+    ".ethos/SOUL.md": "# 项目心智\n\n## 目的\n帮助小团队制作和审阅活动报名表。\n\n## 原则\n默认流程应让首次使用者无需培训就能完成报名。\n",
     "README.md": "# 报名表工具\n当前仓库用于讨论和验证产品决策，无需构建或部署。\n"
   },
   "scenarios": [

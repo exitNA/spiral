@@ -16,7 +16,7 @@ $ethos 把这次架构取舍沉淀成项目今后的判断规则
 
 Loop and Ethos are separate plugins in the Spiral marketplace. Loop independently owns software delivery and verification. When Ethos is available, Loop may use it to integrate project judgment. Ethos also works without Loop, and its absence does not block Loop or create unfinished work.
 
-See [project mind](../.proj-ethos/SOUL.md) for the project's principles and authority model.
+See [project mind](../.ethos/SOUL.md) for the project's principles and authority model.
 
 ## Install from this checkout
 
@@ -33,11 +33,11 @@ When updating a local checkout, use a temporary development cachebuster and rein
 
 ## Project knowledge
 
-Ethos stores distilled project knowledge in the target repository’s `.proj-ethos/`: `SOUL.md` for the current synthesis, `CONTEXT.md` for domain semantics, `decisions/` for consequential rationale, and optional `topics/` for focused guidance. Files are created only when needed. The root `AGENTS.md` points to the project mind; source code, tests, and runtime telemetry remain in their own locations.
+Ethos stores distilled project knowledge in the target repository’s `.ethos/`: `SOUL.md` for the current synthesis, `CONTEXT.md` for domain semantics, `decisions/` for consequential rationale, and optional `topics/` for focused guidance. Files are created only when needed. The root `AGENTS.md` points to the project mind; source code, tests, and runtime telemetry remain in their own locations.
 
 Distilled knowledge follows the user's preferred language; English is used only when no preference is set. This applies to headings and prose, while filenames such as `SOUL.md` remain stable.
 
-Unconfirmed, decision-relevant evidence can survive conversations in `.proj-ethos/.local/candidates.md`, excluded from Git by its own directory's `.gitignore`. It is bounded and expires under the [candidate lifecycle](skills/ethos/references/candidates.md). It is never a source of instructions and is not transferred across machines or worktrees. Confirmed meaning moves into the appropriate authority and its candidate is removed. A recurring choice only becomes a preference when its conditions and rationale are supported; frequency alone is insufficient.
+Unconfirmed, decision-relevant evidence can survive conversations in `.ethos/.local/candidates.md`, excluded from Git by its own directory's `.gitignore`. It is bounded and expires under the [candidate lifecycle](skills/ethos/references/candidates.md). It is never a source of instructions and is not transferred across machines or worktrees. Confirmed meaning moves into the appropriate authority and its candidate is removed. A recurring choice only becomes a preference when its conditions and rationale are supported; frequency alone is insufficient.
 
 ## Source layout
 

@@ -1,13 +1,13 @@
 # Project knowledge storage
 
-Use one `.proj-ethos/` at the resolved repository root, independently of where the Ethos plugin is installed. Respect explicit project boundaries in a monorepo; keep scoped topics under this directory unless the user establishes independent project roots.
+Use one `.ethos/` at the resolved repository root, independently of where the Ethos plugin is installed. Respect explicit project boundaries in a monorepo; keep scoped topics under this directory unless the user establishes independent project roots.
 
 ## Layout
 
 ```text
 <repo>/
   AGENTS.md                         # Compact pointer to the project mind
-  .proj-ethos/
+  .ethos/
     SOUL.md                          # Current synthesis and links to deeper authorities
     CONTEXT.md                       # Domain vocabulary, relationships, invariants
     decisions/
@@ -28,13 +28,13 @@ Keep domain definitions in `CONTEXT.md`. Record consequential historical rationa
 ## Existing knowledge
 
 1. Identify the present authority and its consumers before moving it.
-2. Move existing Ethos-owned project doctrine into `.proj-ethos/`, preserving useful meaning and rationale. Merge with an existing destination rather than overwriting it.
+2. Move existing Ethos-owned project knowledge into `.ethos/`, preserving useful meaning and rationale. Merge with an existing destination by meaning rather than overwriting it.
 3. Update AGENTS pointers, README links, and inbound and outbound relative links. Remove superseded copies; retain a forwarding pointer only when an external consumer needs the old path.
-4. Preserve externally maintained specs, glossaries, architecture documentation, and ADR collections. Link to their authority rather than copying their content into the new directory. New Ethos-owned synthesis belongs in `.proj-ethos/`.
-5. Re-read the result, check links, and ensure one current authority per concept. Clarify uncertain ownership or conflicting direction before migration.
+4. Preserve externally maintained specs, glossaries, architecture documentation, and ADR collections. Link to their authority rather than copying their content into the new directory. New Ethos-owned synthesis belongs in `.ethos/`.
+5. Re-read the result, check links, and ensure one current authority per concept. Clarify uncertain ownership or conflicting direction before moving content.
 
 ## Boundaries
 
 The directory is durable, reviewable project knowledge and can be versioned with the repository. Respect repository versioning policy. `AGENTS.md` stays at its applicable native location and carries compact operational rules and a pointer; code, tests, schemas, configuration, and reusable skills stay in their native locations.
 
-Keep run state, task checklists, telemetry, raw logs, secrets, and unsupported guesses out of `.proj-ethos/`. The sole local evidence exception is `.local/candidates.md`, governed by [candidates.md](candidates.md); exclude it from Git and from doctrine indexes. Its contents are not shared knowledge. Loop's checkpoints and runtime profiles retain their existing locations. Missing Ethos does not require Loop to create this directory.
+Keep run state, task checklists, telemetry, raw logs, secrets, and unsupported guesses out of `.ethos/`. The sole local evidence exception is `.local/candidates.md`, governed by [candidates.md](candidates.md); exclude it from Git and from doctrine indexes. Its contents are not shared knowledge. Loop's checkpoints and runtime profiles retain their existing locations. Missing Ethos does not require Loop to create this directory.
