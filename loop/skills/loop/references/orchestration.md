@@ -7,11 +7,11 @@ Use multiple agents only where specialization or parallelism improves the engine
 
 ## Brief-request handoff
 
-The orchestrator may receive only a short product intent rather than a PRD. Before decomposition, synthesize the minimum Intent Spec from repository evidence. Do not ask workers to invent product behavior independently; the orchestrator should resolve or record material assumptions first and pass bounded acceptance criteria to workers.
+The orchestrator may receive only a short requirement rather than a PRD. Before decomposition, synthesize the minimum Requirements Spec from repository evidence. Do not ask workers to invent product behavior independently; the orchestrator should resolve or record material assumptions first and pass bounded acceptance criteria to workers.
 
 ## Decomposition sequence
 
-1. Expand the user intent/PRD into acceptance criteria and determine project lifecycle stage.
+1. Expand the user requirements or PRD into acceptance criteria and determine project lifecycle stage.
 2. Map requirements to current architecture/code, distinguishing real compatibility contracts from pre-production historical implementation.
 3. Identify shared contracts: schemas, public APIs, applied migrations, state machines, generated types, configuration.
 4. Build a dependency DAG.

@@ -10,7 +10,7 @@ This version uses the recovered `loop-bak/` as its authoritative implementation 
 
 The HTML was saved on 2026-09-06 and names an earlier `loop-learning` attachment without its file bodies. The later recovered backup provides concrete source for the development orchestrator, but does not prove byte-for-byte identity with that earlier attachment. This is an intentional merged version, not a claim that every line occurred in the saved conversation.
 
-The backup remains untouched. Runtime instrumentation is restored, not replaced by state templates. The original development policies—intent expansion, lifecycle-aware compatibility, applied-migration protection, production-grade defaults, coarse-to-fine passes, adaptive delegation, and objective verification—remain part of the skill.
+The backup remains untouched. Runtime instrumentation is restored, not replaced by state templates. The original development policies—requirements expansion, lifecycle-aware compatibility, applied-migration protection, production-grade defaults, coarse-to-fine passes, adaptive delegation, and objective verification—remain part of the skill.
 
 ## Historical reading links
 

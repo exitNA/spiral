@@ -4,8 +4,11 @@
 
 ## Task identity
 
-- Task ID (YYYYMMDD-HHmmss-short-semantic-slug):
-- Created / updated (ISO timestamp and timezone):
+<!-- Task ID value format: YYYYMMDD-HHmmss-short-semantic-slug. Created and Updated use the current environment's local time in ISO 8601 format with its UTC offset. Keep Created unchanged; refresh Updated when the task record meaningfully changes. -->
+
+- Task ID:
+- Created:
+- Updated:
 - Conversation identifier or source pointer, when available:
 - Related / superseded task IDs, if any:
 

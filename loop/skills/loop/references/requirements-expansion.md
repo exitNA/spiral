@@ -1,18 +1,18 @@
-# Intent expansion for brief `$loop` requests
+# Requirements expansion for brief `$loop` requests
 
-The user should be able to describe the desired outcome in natural language without writing an engineering specification.
+The user should be able to state a requirement in natural language without writing an engineering specification.
 
 ## Core rule
 
-Treat missing prompt detail as a repository-understanding problem before treating it as a user-question problem.
+Treat the user's request as a requirement. Resolve missing detail from repository evidence before treating it as a user-question problem; inferred product intent or implementation assumptions may clarify the requirement but cannot replace or narrow it.
 
 ## Evidence ladder
 
 Use the authority and inference hierarchy in [SKILL.md](../SKILL.md#2-authority-and-inference-hierarchy). Apply project lifecycle evidence when deciding which historical behaviors are real compatibility obligations.
 
-## Minimum internal Intent Spec
+## Minimum internal Requirements Spec
 
-For a short request, derive only:
+For a short requirement, derive only:
 
 - observable goal;
 - relevant current behavior;
@@ -27,7 +27,7 @@ Do not manufacture a heavyweight PRD for a small change.
 
 ## Scope control
 
-Brief prompts are not permission for arbitrary redesign.
+Brief requirements are not permission for arbitrary redesign.
 
 Expand details only enough to deliver the requested outcome well. Preserve unrelated product behavior, but do not mistake historical internal code for a compatibility contract. In pre-production projects, prefer one clean current design; in production projects, preserve or migrate real user/external/durable contracts.
 
@@ -67,4 +67,4 @@ Reproduce first. Locate client/server/proxy limits, streaming/buffering behavior
 
 ## Established project judgment
 
-Consult relevant project doctrine, mind, taste, and accepted decisions before inferring routine behavior. Explicit current user instructions remain authoritative. When feedback suggests a consequential durable shift, distinguish a local exception from a project-wide change and optionally route the evidence to an available Ethos skill; do not silently rewrite the project's judgment from an inference.
+Consult relevant project doctrine, mind, taste, and accepted decisions before inferring routine behavior. Explicit current user requirements remain authoritative. When feedback suggests a consequential durable shift, distinguish a local exception from a project-wide change and optionally route the evidence to an available Ethos skill; do not silently rewrite the project's judgment from an inference.

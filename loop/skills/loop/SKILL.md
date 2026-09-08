@@ -48,7 +48,7 @@ Those are internal responsibilities of `$loop`.
 
 Loop is a general-purpose task orchestrator. Use relevant tools and specialist skills for the requested deliverable. A repository is optional; use supplied materials and available task context when none exists.
 
-Apply the execution cycle to the task: understand intent, define acceptance evidence, establish a coarse whole, execute, verify, repair, and deliver. Throughout this skill and its references, software-specific instructions (repository preflight, lifecycle, architecture, migrations, stack selection, logging, builds, and code tests) apply only when the task involves that software concern. For other tasks, use appropriate checks such as source support, calculation reconciliation, artifact rendering, content coverage, or observed app state.
+Apply the execution cycle to the task: understand requirements, define acceptance evidence, establish a coarse whole, execute, verify, repair, and deliver. Throughout this skill and its references, software-specific instructions (repository preflight, lifecycle, architecture, migrations, stack selection, logging, builds, and code tests) apply only when the task involves that software concern. For other tasks, use appropriate checks such as source support, calculation reconciliation, artifact rendering, content coverage, or observed app state.
 
 Default to a **Goal loop** for delivery requests. Explicit planning, review, diagnosis, or advice requests remain bounded to that outcome; the implementation steps below apply only when implementation is in scope.
 
@@ -73,11 +73,11 @@ Apply these principles where relevant to the task unless a higher-authority repo
 
 ## 1. User-experience contract
 
-Treat a short user request as an **intent**, not as an incomplete prompt that must be rewritten by the user.
+Treat every user request as a **requirement**, however short. A brief requirement is not an incomplete prompt that the user must rewrite.
 
 Default behavior:
 
-1. understand the outcome the user is asking for;
+1. identify the stated requirement and desired outcome;
 2. inspect available task context before asking routine questions;
 3. expand the short request into an internal working specification;
 4. infer ordinary missing details from existing behavior, tests, docs, architecture, UI patterns, and project conventions;
@@ -110,9 +110,9 @@ When expanding a brief request, resolve details using this order of authority:
 
 Never override a higher-authority source with a lower-authority inference.
 
-## 3. Internal intent expansion
+## 3. Internal requirements expansion
 
-Before significant execution, silently construct a compact **Intent Spec**. It is an internal execution artifact, not something the user must provide.
+Before significant execution, silently construct a compact **Requirements Spec**. It is an internal execution artifact, not something the user must provide.
 
 Include only what is needed:
 
@@ -304,7 +304,7 @@ Do not make "modern" mean decorative complexity. Favor clarity, speed, accessibi
 
 ## 8. Build a requirement-to-task graph
 
-Convert the Intent Spec into a compact dependency graph.
+Convert the Requirements Spec into a compact dependency graph.
 
 Each task should capture:
 
@@ -324,7 +324,7 @@ Do not create dozens of tiny tasks merely to appear agentic. Task size should mi
 
 ## 9. Multi-agent orchestration
 
-The primary thread is the **orchestrator**. It owns intent, requirements, dependencies, integration, elapsed time, quality gates, and dynamic scheduling.
+The primary thread is the **orchestrator**. It owns requirements, dependencies, integration, elapsed time, quality gates, and dynamic scheduling.
 
 Subagents are bounded specialists. Use them when they improve quality, speed, or independent judgment.
 
@@ -500,7 +500,7 @@ Time monitoring is part of execution, not just the final report.
 Track when practical:
 
 - total wall-clock elapsed time;
-- discovery, intent expansion/planning, implementation, integration, verification, and repair durations;
+- discovery, requirements expansion/planning, implementation, integration, verification, and repair durations;
 - per-task/per-agent elapsed time;
 - first-pass success and rework;
 - retries;
@@ -616,7 +616,7 @@ Verification preference:
 3. appropriate regression/broader suite;
 4. independent review;
 5. runtime/E2E validation where applicable;
-6. final intent/requirement reconciliation.
+6. final requirement reconciliation.
 
 Real bugs discovered during work should become reproducible regression tests when practical.
 
@@ -679,7 +679,7 @@ Do not finish with only a plan when implementation was requested. Mention projec
 
 Read only as needed:
 
-- `references/intent-expansion.md` — turning short requests into executable internal specifications.
+- `references/requirements-expansion.md` — turning short requirements into executable internal specifications.
 - `references/project-stage.md` — production-stage detection, compatibility rules, and database migration exception.
 - `references/engineering-defaults.md` — technology, logging, database, desktop/backend/AI/frontend, and UI defaults.
 - `references/fast-iteration.md` — short feedback loops and rapid result verification.

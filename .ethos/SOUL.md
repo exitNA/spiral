@@ -23,9 +23,9 @@ Project knowledge is an authority system rather than a note collection. `.ethos/
 
 - **Independent plugins, optional cooperation:** Loop delivers the work; Ethos automatically evolves project judgment when available.
 - **Coarse whole before local polish:** validate architecture, main flow, and product direction before deep refinement.
-- **以原始交付范围验收：** 客观证据和独立审查必须对应用户要求的完整成果；粗粒度整体只是中间里程碑。迁移默认保留范围内的用户能力，原验收义务不能因更换实现或删改文档而消失。仍可执行的必需工作应继续完成；取消、明确预算和真实外部阻塞则按实际状态交接，不缩小目标后宣称完成。
+- **需求不是意图，以原始交付范围验收：** 用户提出的 request 是需求，是范围与验收的原始权威；意图只能是基于证据的解释，不能替代或缩小需求。客观证据和独立审查必须对应用户要求的完整成果；粗粒度整体只是中间里程碑。迁移默认保留范围内的用户能力，原验收义务不能因更换实现或删改文档而消失。仍可执行的必需工作应继续完成；取消、明确预算和真实外部阻塞则按实际状态交接，不缩小目标后宣称完成。
 - **Coherence over capture:** improve the existing model instead of appending detached observations.
-- **每个用户任务独立记录：** Loop 为每个独立目标建立带稳定 ID 的任务文档，小任务也不例外；ID 按“创建时间戳 + 简短语义”命名，便于按时间浏览和识别。同一目标的补充、纠正和恢复沿用该文档，新目标另建并关联。任务状态不与项目长期判断混写，也不靠会话上下文代替持久记录。
+- **每个用户任务独立记录：** Loop 为每个独立目标建立带稳定 ID 的任务文档，小任务也不例外；ID 按本地创建时间戳与简短语义命名，便于按时间浏览和识别。模板中的 `Task ID`、`Created`、`Updated` 是纯字段名，格式说明不属于字段名；`Created` 固定，`Updated` 随任务记录的有效更新使用本地时间刷新。同一目标的补充、纠正和恢复沿用该文档，新目标另建并关联。任务状态不与项目长期判断混写，也不靠会话上下文代替持久记录。
 - **目标稳定、执行清单动态：** 原始要求、Agent 解释和授权变更分开保存。任务清单可随证据拆分、替换、取消和重开，但必须保留需求覆盖与调整原因；工作做完不等于需求验收通过。LOOP.md 严格使用统一模板，不以等价任务文档代替；任务清单使用列表，标题与正文按用户语言编写。LOOP.md 独占整体状态与下一步，STATE.md 仅保存技术恢复现场。任务清单须通过 Codex 原生计划工具展示；对话复选框、文档面板或自制界面不能替代。缺少原生工具时明确报告同步受阻。原生视图从主文档同步，不形成第二份状态权威。
 - **Automatic detection, conservative writing:** recognize qualifying signals during ordinary work, but canonize only explicit or well-supported learning.
 - **Evidence before preference:** infer conditional preferences from independent choices and their rationale, preserving constraints and counterexamples. Repetition alone does not establish taste or intent. Keep useful uncertain evidence in a bounded, ignored local candidate store; promote established meaning into its authority and remove the candidate.
