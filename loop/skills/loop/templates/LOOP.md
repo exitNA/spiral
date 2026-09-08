@@ -49,6 +49,8 @@ Evidence identifies the observed result, location, and tested artifact/version; 
   - Result / change reason:
   - Owner (if delegated; otherwise not applicable):
 
+After saving, publish this list through Codex’s native plan/checklist tool; follow ../references/memory-compression.md. Each projected item includes its T ID, requirement IDs, dependencies, and status; the sole active item matches “Next action”, and every update explanation names that next-action ID or its terminal/blocked condition together with blockers and retired-item changes. Record unavailable or failed native synchronization in blockers and handoff; conversation checkboxes and file panels do not satisfy this obligation. The native display is not a second authority.
+
 Repeat this list item for each work item; never render the dynamic work list as a table. Work statuses: pending / in_progress / blocked / done / superseded / cancelled (localize display values). Keep implementation and verification work distinguishable. Retain superseded/cancelled IDs with their reason and replacement IDs or scope-change reference. Small tasks use the same fields and structure.
 
 ## Completion or handoff

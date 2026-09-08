@@ -10,6 +10,18 @@ The skill name is `loop`, so the intended explicit invocation is:
 
 `$loop ...`
 
+## Native plan/checklist tool
+
+The visible work-list projection depends on host capabilities and is not supplied by this plugin. Inspect the tools actually exposed in the current task before publishing:
+
+1. Check direct native tool declarations first.
+2. When the host exposes a code-mode registry, inspect it for a native plan/checklist tool. Searching MCP or connector tools alone does not prove that a native tool is absent.
+3. Use the exposed native tool and its live schema. Do not switch collaboration modes or create a separate task or goal merely to obtain a checklist.
+
+Current Codex hosts may expose this capability as `update_plan`. Its known schema accepts `plan` entries containing `step` and `status`, plus an optional top-level `explanation`; known status values are `pending`, `in_progress`, and `completed`, with at most one `in_progress` entry. Treat those names as a runtime example, not a portable plugin API: prefer the live schema whenever it differs. Localize human-readable text, not tool enum values.
+
+If no native checklist tool is exposed, use tool discovery when available. If discovery is exhausted or a call fails, do not invent a tool, claim publication from plain text, or repeatedly retry an unchanged missing capability. Return to the projection contract in [memory-compression.md](memory-compression.md): keep the canonical document current, record native synchronization as blocked/unverified, and continue independent authorized work.
+
 ## Subagents
 
 Current Codex versions support subagent workflows and can be instructed by a skill/`AGENTS.md` to delegate independent work. Activity is surfaced in Codex clients.
@@ -49,5 +61,6 @@ Applicable `AGENTS.md` instructions remain authoritative project guidance. The l
 | subagents | parallel bounded roles | sequential role passes |
 | custom agent role | named custom role | built-in worker/explorer + explicit role prompt |
 | runtime timer helper | `loop_runtime.py` | shell/manual timestamps |
+| native plan/checklist | exposed native tool and live schema | current LOOP.md + explicit blocked/unverified synchronization |
 | full tests unavailable | full + targeted | targeted evidence + explicit environment blocker |
 | isolated worker edits | parallel isolated work | serialize overlapping writes |

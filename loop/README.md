@@ -316,6 +316,8 @@ Observe → Orient → Hypothesize → Act → Verify
 
 `LOOP.md` 是整体状态、需求、任务清单和下一步的唯一权威；可选的 `STATE.md` 只保存环境、代码版本、实验现场和恢复方式。运行统计与恢复快照都不能替代或覆盖主任务文档。
 
+任务清单必须通过 Codex 原生计划工具同步，消息中的 Markdown 复选框、文档面板或自制界面都不能替代原生清单。展示只是 `LOOP.md` 的同步视图；具体字段、依赖、阻塞、下一步和退役任务映射由 [任务状态契约](skills/loop/references/memory-compression.md) 统一定义，宿主工具发现、实时 schema 与失败处理由 [Codex 运行时契约](skills/loop/references/codex-runtime.md) 统一定义。
+
 Loop 与 Ethos 是两个独立插件。通过当前技能目录发现可用的 Ethos 后，Loop 可以使用它沉淀项目心智；Ethos 也会在普通对话和开发过程中自动识别并整合高置信学习。未安装 Ethos 时，Loop 正常完成开发与验证，不产生待整合任务，也不要求安装。
 
 ## 目录
