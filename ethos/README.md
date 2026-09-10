@@ -14,9 +14,9 @@ $ethos 把这次架构取舍沉淀成项目今后的判断规则
 
 ## Relationship with Loop
 
-Loop and Ethos are separate plugins in the Spiral marketplace. Loop independently owns software delivery and verification. When Ethos is available, Loop may use it to integrate project judgment. Ethos also works without Loop, and its absence does not block Loop or create unfinished work.
+Loop and Ethos are separate plugins in the Spiral marketplace. Loop independently orchestrates general-purpose tasks from requirements to verified outcomes, including research, writing, analysis, design, software development, and app operations. A repository is optional. When Ethos is available, Loop may use it to integrate project judgment. Ethos also works without Loop, and its absence does not block Loop or create unfinished work.
 
-See [project mind](../.ethos/SOUL.md) for the project's principles and authority model.
+See the [knowledge model](skills/ethos/references/knowledge-model.md) for how Ethos assigns and reconciles project knowledge authorities.
 
 ## Install from this checkout
 
@@ -27,7 +27,7 @@ codex plugin marketplace add /path/to/spiral
 codex plugin add ethos@spiral
 ```
 
-Optionally install `loop@spiral` for software-delivery orchestration. Start a new Codex task after installation so the installed skill becomes available.
+Optionally install `loop@spiral` for general-purpose task orchestration. Start a new Codex task after installation so the installed skill becomes available.
 
 When updating a local checkout, use a temporary development cachebuster and reinstall `ethos@spiral`; keep the release version stable in source control. Inspect installed plugin IDs and remove a superseded Ethos installation from another marketplace so only one version supplies the skill. A running task can retain old instructions and Hook definitions; verify the new version in a new task, restarting Codex if an old Hook still appears. Existing conversation history is not removed by updating the plugin.
 
