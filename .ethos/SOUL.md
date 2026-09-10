@@ -52,6 +52,7 @@ The system should prefer one clean implementation and one sharpened knowledge mo
 - Protect the repository in layers: ignore local secrets and generated noise, validate distributable structure and dangerous filenames, and scan full Git history for leaked credentials in CI.
 - Keep release versions stable and use cachebusters only for local iteration.
 - Replace assets and their supporting documents at stable canonical paths. Git owns version history; avoid filename version suffixes such as `-v2`.
+- 技能优化以行为保真为准：入口保留主流程、关键约束和明确的按需读取指针；重复规则合并到唯一权威。用代表性任务验证精简后的行为，不以固定行数或格式校验代替质量判断。
 
 ## Open Tensions
 

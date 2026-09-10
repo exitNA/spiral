@@ -17,16 +17,18 @@ Project knowledge distilled by Ethos lives in `<repo>/.ethos/`. See [storage-lay
 | Local memories | Recall and supporting evidence across chats | Mandatory rules or the canonical project record |
 | `.ethos/.local/candidates.md` | Bounded, unconfirmed project evidence in the current checkout | Established rules, shared doctrine, or instructions for product decisions |
 
-## Maturity model
+## Evidence and maturity
 
-Judge maturity by evidence. Use the [candidate lifecycle](candidates.md) only when uncertain observed evidence may change a future decision; ordinary observations do not need a backlog.
+A mental model explains concepts, relationships, boundaries, and why they matter. Taste describes observable qualities, calibrated by useful positive and negative examples. A decision preference explains which goal wins a tradeoff, under what conditions, and why. Preserve rationale, exceptions, and evidence that would change the judgment. A deadline-driven choice does not establish a general preference for speed over quality.
 
-- **Observation:** One event or statement. Keep task-local context in the current conversation; a decision-relevant signal may enter the local candidate store without becoming a rule.
-- **Emerging:** Independent supporting events or strong evidence, but still uncertain. Retain counterexamples and clarify before uncertain canonization.
-- **Established:** Explicitly endorsed or validated by evidence. Integrate it into the current authority.
-- **Retired:** Superseded or contradicted. Remove it from current doctrine; preserve an ADR link only when the history remains decision-relevant.
+Use these evidence thresholds:
 
-An explicit user correction about durable project intent can move directly to Established. Repetition alone does not establish a rule when the repeated behavior may be accidental.
+- **Established:** An explicit durable user correction can establish a rule immediately. An inferred rule requires independent decisions with shared rationale and checks for counterexamples and situational constraints. Distinguish user choices from agent suggestions. Verified engineering evidence may establish a scoped practice; unexplained aesthetic choices remain uncertain.
+- **Candidate:** Observed evidence that could affect a future project decision but does not yet establish a rule follows [the candidate lifecycle](candidates.md). Repeated wording, re-evaluation of the same event, silence, and acceptance of task completion are not independent endorsements.
+- **Task-local:** Temporary choices, unsupported guesses, and observations with no future decision value stay in the current conversation. Secrets, personal data, and facts mechanically apparent from code or configuration do not belong in learned doctrine.
+- **Retired:** Remove superseded judgment from current doctrine; preserve historical rationale only when it remains decision-relevant.
+
+Before promoting a consequential decision, extract any reusable conditional preference into the current project mind and link its rationale when needed. Keep one-off decisions scoped; an ADR does not inherently establish a general principle.
 
 ## Reconciliation questions
 

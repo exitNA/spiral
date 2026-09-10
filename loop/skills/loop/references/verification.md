@@ -1,15 +1,19 @@
 # Verification and completion
 
-## Evidence hierarchy
+## Verification scope
+
+Select checks for the requested deliverable and risk. For non-software work, use source support, calculation reconciliation, artifact rendering, content coverage, or observed app state. For software, use the applicable checks below; this is not a requirement to run every kind on every task.
 
 1. compiler/build/type/static checks;
 2. deterministic unit/integration tests;
 3. reproducible regression tests;
 4. runtime/E2E/browser checks;
-5. independent code/reliability/security review;
+5. independent code/reliability/security review for substantial or materially risky work;
 6. manual human judgment for genuinely subjective or externally consequential behavior.
 
-## PRD traceability
+Do not add tests that only mirror reversible low-impact changes. Complete required checks; repeat or broaden them only when new changes, failures, or unresolved concerns justify it.
+
+## Requirement traceability
 
 For every task, establish the mapping in its dedicated LOOP.md before execution and maintain it through final review, strictly following [../templates/LOOP.md](../templates/LOOP.md), including for small tasks. Link existing requirement matrices as baselines. Every original requirement and discovered in-scope gap must remain accounted for, conceptually:
 
@@ -56,7 +60,7 @@ A substantial run is complete only when:
 - all in-scope requirements have evidence;
 - required deterministic checks pass;
 - new failures found during the run are resolved or explicitly blocked;
-- independent review has no unresolved blocking findings;
+- independent review has no unresolved blocking findings, or the unavailable-agent fallback below has been performed and its limitation disclosed;
 - the final integrated state, not only individual worker branches, is verified.
 
 Decide from the requirement map:

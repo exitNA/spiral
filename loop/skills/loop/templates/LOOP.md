@@ -4,7 +4,7 @@
 
 ## Task identity
 
-<!-- Task ID value format: YYYYMMDD-HHmmss-short-semantic-slug. Created and Updated use the current environment's local time in ISO 8601 format with its UTC offset. Keep Created unchanged; refresh Updated when the task record meaningfully changes. -->
+<!-- Task ID value format: YYYYMMDD-HHmmss-short-semantic-slug. Capture the creation time once and derive the Task ID prefix, Created, and initial Updated from that same value. Created and Updated use the current environment's local time in ISO 8601 format with its UTC offset. Keep Created unchanged; refresh Updated when the task record meaningfully changes. -->
 
 - Task ID:
 - Created:

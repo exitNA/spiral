@@ -38,3 +38,19 @@ Keep domain definitions in `CONTEXT.md`. Record consequential historical rationa
 The directory is durable, reviewable project knowledge and can be versioned with the repository. Respect repository versioning policy. `AGENTS.md` stays at its applicable native location and carries compact operational rules and a pointer; code, tests, schemas, configuration, and reusable skills stay in their native locations.
 
 Keep run state, task checklists, telemetry, raw logs, secrets, and unsupported guesses out of `.ethos/`. The sole local evidence exception is `.local/candidates.md`, governed by [candidates.md](candidates.md); exclude it from Git and from doctrine indexes. Its contents are not shared knowledge. Loop's checkpoints and runtime profiles retain their existing locations. Missing Ethos does not require Loop to create this directory.
+
+## Create or maintain the project mind
+
+When `SOUL.md` is the right authority, use [the project mind template](../assets/SOUL.template.md) as a shape, including only sections with real content. For a consequential decision, use [the ADR template](../assets/ADR.template.md) when the repository has no established ADR format.
+
+When the project mind exists, integrate one compact pointer into the root `AGENTS.md`, adapting its scope to the project and preserving existing instruction-maintenance guidance:
+
+> Read `.ethos/SOUL.md` before product, architecture, UX, collaboration, or engineering-practice decisions. Use `$ethos` when new evidence changes the project's durable judgment.
+
+Keep detailed knowledge in its authority rather than expanding the pointer.
+
+## Language of distilled knowledge
+
+Write project knowledge in the user's preferred language. Resolve it from the user's explicit instruction for the current task first, then an established user language preference available in the conversation or applicable settings/guidance. Use English only when no preference is set. Do not treat an English template or an existing English document as overriding the user's preference, and do not infer a durable preference from a single message's language.
+
+Apply the selected language to headings and prose in `SOUL.md`, `CONTEXT.md`, decisions, and topics, including generated template content. Keep canonical filenames, paths, code identifiers, and exact quotations unchanged. When updating existing knowledge in another language, keep the revised section coherent in the selected language and preserve its meaning and links; translate the whole document when requested rather than creating parallel language copies. A language preference alone is not a reason to create a project artifact.

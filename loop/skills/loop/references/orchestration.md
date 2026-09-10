@@ -24,7 +24,36 @@ The orchestrator may receive only a short requirement rather than a PRD. Before 
    - `review`
    - `repair`
 6. Mark likely file/interface overlap.
-7. Schedule ready tasks with bounded concurrency.
+7. Classify each bounded task and select a model using the policy below, then schedule ready tasks with bounded concurrency.
+
+## Roles and concurrency
+
+Use explorer/requirements for discovery, architect for shared contracts and risks, worker for implementation, tester for reproductions and verification, and reviewer for independent acceptance/correctness checks. Architecture, exploration, and review are normally read-only. Use security review when auth, permissions, untrusted input, privacy, payments, or data integrity is materially involved. Built-in roles plus a bounded brief can replace unavailable custom roles.
+
+Start with up to 3–4 independent read-only agents or about 2 workers with disjoint write ownership, subject to runtime limits. Increase only when low conflict and rework justify it; reduce concurrency or merge tiny tasks when coordination dominates. Do not delegate a task whose setup/handoff cost exceeds its benefit.
+
+## Task difficulty and model selection
+
+Select by the work's uncertainty, dependency breadth, consequences of error, and difficulty of verification, not its role name, prompt length, or number of files alone. Use the least expensive/fastest available model tier adequate for the task, subject to explicit user model choices and budgets. A read-only investigation can be complex; a test run can be simple.
+
+| Tier | Task characteristics and examples | Model capability | Initial reasoning effort, if supported |
+|---|---|---|---|
+| Simple | Clear procedure, narrow scope, low risk, directly checkable output: locating known symbols, extracting facts from supplied material, running established checks, mechanical edits under a settled contract | Lightweight/fast | Low |
+| Standard | Known design with several interacting steps: bounded feature implementation, regression test design, localized diagnosis or review | Balanced general-purpose | Medium |
+| Complex | Ambiguous requirements, cross-module contracts, difficult root-cause analysis, subtle concurrency, security/data-integrity decisions, consequential migrations, or integration/review requiring broad reasoning | Advanced/most capable available for the work | High; increase only when evidence warrants it |
+
+Use the higher tier when uncertainty or consequences make a lower tier unsafe. Split a mixed task into a complex decision followed by simple independent execution when there is a clean handoff; do not split away the context needed to judge correctness. Stabilize shared contracts before dispatching cheaper implementation work.
+
+For each dispatch:
+
+1. Assess the bounded task against the table and resolve actual available models through [codex-runtime.md](codex-runtime.md). Tier labels are policy categories, not model IDs.
+2. Record the tier, selected model, supported reasoning effort, and one-line rationale in the existing work item's `Result / change reason` field. Respect the LOOP.md template; do not add a second scheduling document or change its structure.
+3. Pass the selection through the runtime's actual model controls along with the bounded delegation contract. Keep role, model capability, and reasoning effort separate. Reassess follow-up work before reusing an agent whose model was chosen for an easier assignment.
+4. Verify the returned result against the same acceptance criteria regardless of model tier. Independent reviewers must be capable of evaluating the artifact's risk and complexity; routine command execution does not substitute for that review.
+
+If a worker exposes broader dependencies, unresolved ambiguity, unsupported reasoning, or a substantive correctness/review failure, diagnose whether the cause is the task brief, environment, or capability. Correct missing inputs or environmental problems first. When the task exceeds the selected model's capability, promote it to a stronger available model with a compact handoff containing evidence, attempted work, remaining uncertainty, ownership, and acceptance criteria. Do not repeat an unchanged failed assignment on the same lightweight model. Stop or finish the previous owner's work before giving a replacement overlapping write ownership.
+
+Do not downgrade complex work merely because the preferred model is unavailable. Use a comparably capable available model or the capable parent; otherwise explicitly record the capability limitation and keep unsupported acceptance claims unverified. A fixed-model environment can still execute useful work, but cannot be reported as heterogeneous model delegation.
 
 ## A good task boundary
 

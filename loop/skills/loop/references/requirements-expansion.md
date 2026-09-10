@@ -8,7 +8,7 @@ Treat the user's request as a requirement. Resolve missing detail from repositor
 
 ## Evidence ladder
 
-Use the authority and inference hierarchy in [SKILL.md](../SKILL.md#2-authority-and-inference-hierarchy). Apply project lifecycle evidence when deciding which historical behaviors are real compatibility obligations.
+Use the authority and inference hierarchy in [SKILL.md](../SKILL.md#scope-and-authority). Apply project lifecycle evidence when deciding which historical behaviors are real compatibility obligations.
 
 ## Minimum internal Requirements Spec
 

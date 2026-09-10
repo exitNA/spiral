@@ -39,12 +39,17 @@ Subagent implementations and exact exposed tools can vary by client/version. The
 
 Do not assume one specific model exists in every environment.
 
-General policy:
+Apply the task-tier policy in [orchestration.md](orchestration.md). Resolve capabilities from the active tool declarations and runtime model catalog rather than a model list embedded in this plugin. Use advertised capabilities to map lightweight, balanced, and advanced tiers; use published cost/latency information only when available, not guesses from model names. Explicit user model constraints override automatic selection.
 
-- use the current strong parent/orchestrator model for synthesis and critical-path reasoning;
-- use faster/lower-cost agents for read-heavy exploration or mechanical scans when available;
-- use stronger/higher-reasoning agents for architecture, difficult debugging, and independent review when the runtime permits;
-- do not spend expensive agent contexts on trivial tasks.
+Before spawning:
+
+1. Check whether the live subagent tool exposes per-agent model and reasoning controls, and which model/effort combinations it permits. Do not infer subagent support from a separate top-level task-creation tool.
+2. When controls are available, pass the exact supported model ID and effort through those controls. Raising effort on an inherited model is not a model switch. If effort selection is unsupported, omit it while retaining any supported model choice.
+3. Honor context-inheritance restrictions. For example, a runtime may forbid model overrides with a full-history fork. Choose an allowed bounded/no-history fork and supply a self-contained task brief with relevant instructions, requirements, ownership, inputs, and verifiers. Use the live schema, not this example, as the authority.
+4. Optional role TOML assets describe specialization; they do not establish model availability. Use a compatible role/override or a built-in role with the same task instructions when a preset conflicts with the selected model or supported effort.
+5. If selection is unavailable or rejected, use a supported adequate alternative or inherit the parent where appropriate. Record the actual selection or inherited/unknown state and limitation; never claim a model switch from prompt text alone. Do not repeatedly retry an unchanged unsupported combination, alter global model settings, or create user-facing tasks to work around missing subagent controls.
+
+On promotion or follow-up, change the worker's model only if the runtime supports it. Otherwise create a replacement worker with the selected model and a compact evidence handoff, observing the ownership rule in orchestration.md. Record requested selection separately from runtime-confirmed metadata; if the runtime does not expose the effective model, mark it unconfirmed.
 
 ## Permissions
 

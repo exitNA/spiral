@@ -16,6 +16,7 @@ The objective is not maximum concurrency. The objective is high-quality completi
 - conflict count;
 - verification failure count;
 - review defect count by severity.
+- time to the first representative end-to-end direction check, local refinement before that check, and late contract/architecture reversals that invalidate finished work.
 
 ### Task-level
 
@@ -76,7 +77,7 @@ If tasks complete quickly but the run spends disproportionate time dispatching/i
 ### Verification bottleneck
 
 - targeted checks after local changes;
-- full suite at integration gates;
+- relevant broader checks at meaningful integration gates when risk or unresolved evidence warrants them;
 - parallelize independent test suites if supported;
 - do not rerun unchanged expensive checks needlessly;
 - isolate flaky/environmental failures.
@@ -107,6 +108,8 @@ Old hints are hypotheses. New evidence can replace them.
 
 ## Runtime operation
 
-Use `scripts/loop_runtime.py --help` for the command interface. Telemetry records events supplied by the orchestrator; it does not automatically instrument tools or certify correctness. The primary orchestrator should serialize telemetry writes, capture the run ID returned by `init`, and pass it with `--run` on later run commands so concurrent tasks do not use a different current-run pointer. Use unique task IDs per attempt and finish each run once.
+Resolve [loop_runtime.py](../scripts/loop_runtime.py) from the loaded skill directory and run it by absolute path with `--help` for the command interface; do not resolve it from the user's working directory. Telemetry records events supplied by the orchestrator; it does not automatically instrument tools or certify correctness. The primary orchestrator should serialize telemetry writes, capture the run ID returned by `init`, and pass it with `--run` on later run commands so concurrent tasks do not use a different current-run pointer. Use unique task IDs per attempt and finish each run once.
 
 Treat computed hints as heuristics. Keep task contracts/checkpoints and project judgment out of scheduling profiles. If the configured runtime directory is outside allowed write roots, use task-local/manual timing rather than broadening permissions just for telemetry.
+
+Use observed elapsed time in useful progress reports; do not promise speculative completion times. For signs of premature local refinement, return to [fast-iteration.md](fast-iteration.md).

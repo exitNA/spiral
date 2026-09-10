@@ -1,216 +1,45 @@
-# Fast iteration: coarse-to-fine convergence
+# Coarse-to-fine implementation
 
-## Objective
+Use this for multi-component software work or uncertain architecture. Establish the real main flow before deep local refinement so wrong direction is discovered while changes are cheap. For other deliverables, apply the same principle through an outline or representative result, not software-specific gates.
 
-Minimize the amount of work invested before discovering that the overall direction is wrong.
+## Establish and validate the whole
 
-Fast iteration is not "make one tiny part perfect quickly." It is **progressive convergence**:
+1. Sketch the outcome, main user/data/control flow, major boundaries, shared contracts, persistence/integrations, runtime shape, and highest-risk assumptions. Do not specify every class, field, or component state upfront.
+2. Build the smallest structurally representative main path using the intended architecture. Coarse detail is acceptable; fake persistence, bypassed interfaces, unsafe shortcuts, and throwaway frameworks cannot prove the real solution.
+3. Exercise that path end to end. Check runtime wiring, shared contracts, representative UX, and the riskiest assumption. If direction fails, change the architecture or contract before local polishing.
+4. Refine by impact: primary correctness; data integrity/security/concurrency/failures; important edge cases and integrations; performance; UX/accessibility; low-risk cleanup. Keep the whole runnable after each pass.
 
-`rough whole -> validate whole -> refine major areas -> validate -> refine details`
+Examples of a representative path:
 
-Think like drawing. First establish composition, proportions, and major shapes. Only after the picture reads correctly should you spend time on anatomy, texture, lighting, and tiny details.
+| Deliverable | Early direction evidence |
+| --- | --- |
+| UI/application | Screen → real action → service/data → visible result and diagnostic/error path |
+| Backend | Startup → endpoint → domain logic → persistence/integration → response/logs |
+| Desktop | Launch → main workflow → native integration/storage → visible result/diagnostics |
+| Multi-component system | Major producers and consumers exchange real data through agreed contracts |
 
-Software development should follow the same pattern.
+A coarse whole is an intermediate milestone, not reduced acceptance. Completion still covers the original requirements through [verification.md](verification.md).
 
-## Core rule: breadth before depth
+## Narrow bug fixes
 
-At every point ask:
+Scope the whole to the complete affected flow:
 
-> Is the whole relevant system/flow sufficiently established and validated to justify deeper local work?
+`reproduce → inspect upstream/downstream contracts → identify cause → fix → targeted regression → nearby integration check`
 
-If not, move outward/upward before going deeper.
+Do not expand a local defect into a product rewrite. Preserve diagnostic evidence and reconsider the contract or representation when repeated local patches fail.
 
-Bad pattern:
+## Coordinate the passes
 
-`deep local design -> polished implementation -> many tests -> discover global architecture/product direction is wrong`
+Early independent discovery may examine product, runtime, UI, data, and test surfaces in parallel. Synthesize one coherent model and stabilize contracts before increasing write concurrency. Follow [orchestration.md](orchestration.md) for ownership, roles, and model selection.
 
-Preferred pattern:
+Match checks to the pass:
 
-`global sketch -> coarse real end-to-end flow -> direction evidence -> progressively finer passes`
+- **Direction:** start/build, main-flow smoke check, interface/schema sanity, representative runtime/UI, highest-risk assumption.
+- **Refinement:** targeted static, unit/contract, integration, regression, or performance checks relevant to the changed area.
+- **Integration/completion:** broader regressions, appropriate independent review, runtime checks, and final requirement reconciliation under [verification.md](verification.md).
 
-## Pass 1 — sketch the whole
+## When to return to the whole
 
-Build a compact global model before deep implementation:
+Revisit direction when shared-contract changes repeatedly invalidate local work, the main flow still cannot run despite many passing component tests, or polished areas remain connected through hypothetical interfaces. Reduce speculative fan-out, repair the global model, and validate it before resuming local detail.
 
-- desired user/product outcome;
-- major components and boundaries;
-- main user/data/control flow;
-- persistence and external integrations;
-- shared contracts/interfaces;
-- lifecycle/compatibility constraints;
-- deployment/runtime shape;
-- logging/observability path;
-- highest-risk assumptions.
-
-Do not attempt to specify every class, field, function, screen state, or error branch yet.
-
-The goal is to expose architectural mistakes cheaply.
-
-## Pass 2 — build a coarse but real whole
-
-Create the smallest implementation that uses the intended production architecture and connects the main path end to end.
-
-"Coarse" means incomplete refinement, not fake/demo quality.
-
-Do not substitute:
-
-- fake persistence for the real persistence architecture;
-- temporary throwaway frameworks;
-- hard-coded paths that bypass intended interfaces;
-- unsafe shortcuts that would need to be discarded immediately;
-- placeholder architecture that proves nothing about the real solution.
-
-The first runnable whole should be structurally representative of the final system.
-
-### Examples
-
-#### New UI/application
-
-Prefer:
-
-`app shell -> primary screen -> real action -> service/data -> visible result -> logs/error visibility`
-
-Before deeply polishing one component, confirm the whole interaction can work.
-
-#### Backend/service
-
-Prefer:
-
-`startup -> endpoint -> domain path -> persistence/integration -> response -> logs`
-
-Before building every validation and optimization branch, prove the runtime wiring and contracts.
-
-#### Desktop application
-
-Prefer:
-
-`launch -> main workflow -> native/platform integration/storage -> visible result -> diagnostics`
-
-Before spending heavily on one panel or custom control, validate the application architecture and main workflow.
-
-#### Multi-component system
-
-Connect the major components with real contracts early. Avoid completing one subsystem in isolation while the cross-system contract is still hypothetical.
-
-## Pass 3 — validate direction
-
-The first important checkpoint is not "is this module polished?" but:
-
-- does the real application/service start?
-- does the primary end-to-end flow work?
-- do major modules fit together naturally?
-- are interfaces/data models viable?
-- does the selected technology satisfy the actual requirements?
-- is the UX/product direction correct enough to continue?
-- is the riskiest assumption now supported by evidence?
-
-If not, change direction immediately.
-
-Early coarse code is cheap to delete. Late polished code is expensive to unwind.
-
-## Pass 4+ — progressively refine
-
-Once global direction is validated, deepen in layers rather than randomly:
-
-1. primary correctness;
-2. data integrity/security/concurrency/failure paths;
-3. important edge cases and integrations;
-4. performance/resource usage;
-5. UX states/accessibility/responsiveness/visual quality;
-6. local cleanup and low-risk polish.
-
-After each pass, the whole system should remain runnable and better verified.
-
-Avoid local perfection while major neighboring areas are still structurally uncertain.
-
-## Bug fixes
-
-For a bug, scope "the whole" to the **complete affected flow**.
-
-Use:
-
-`reproduce whole affected flow -> map upstream/downstream contracts -> identify cause -> fix -> targeted regression -> nearby integration check`
-
-Do not rewrite the whole product for a local issue, but do not patch one line without understanding the flow around it.
-
-## Multi-agent scheduling
-
-### Early passes
-
-Use parallel agents primarily to broaden understanding:
-
-- repository/product exploration;
-- runtime/reproduction inspection;
-- UI flow inspection;
-- data/schema/integration inspection;
-- architecture/risk analysis;
-- existing test/CI behavior.
-
-The orchestrator must synthesize these into one coherent whole-system model.
-
-Keep early write concurrency low until architecture/shared contracts/main flow are validated.
-
-### After direction validation
-
-Fan out more aggressively across clean boundaries:
-
-- independent features/modules;
-- test coverage;
-- failure/edge cases;
-- UI refinement;
-- performance work;
-- review/security review.
-
-Parallelism should accelerate convergence, not multiply speculative detail.
-
-## Verification scheduling
-
-Match verification to refinement level.
-
-### Whole-direction checks
-
-Run early:
-
-- build/start;
-- primary smoke/end-to-end flow;
-- contract/schema sanity;
-- representative UI/runtime check;
-- highest-risk architecture assumption.
-
-### Local refinement checks
-
-Run continuously once direction is validated:
-
-- static/type/compiler checks;
-- focused unit/contract tests;
-- targeted integration tests;
-- regression tests;
-- performance/resource checks where relevant.
-
-### Broad gates
-
-Run at meaningful integration/completion boundaries:
-
-- broader regression/full suite;
-- independent review;
-- E2E/runtime validation;
-- requirement reconciliation.
-
-## Process signals
-
-Watch for signs that the team/agents are refining too early:
-
-- a large amount of code exists before the main path runs;
-- one module is heavily polished while major interfaces are unproven;
-- many local tests pass but end-to-end behavior has not been exercised;
-- repeated local fixes are caused by changing shared contracts;
-- late architectural reversals delete large amounts of polished code;
-- agent fan-out is high before the global model is stable.
-
-When these occur, reduce local depth, move up a level, re-establish the whole, and validate direction again.
-
-## Fast iteration is not lower quality
-
-The purpose is to discover wrong direction **earlier**, so more time is available for quality after the direction is proven.
-
-Use production-grade technology and architecture from the beginning, but reveal and validate it progressively instead of attempting to fully detail every local part upfront.
+Use [time-efficiency.md](time-efficiency.md) when measuring these bottlenecks or adjusting scheduling. Production quality comes from validating the intended solution progressively, not from perfecting disconnected parts.

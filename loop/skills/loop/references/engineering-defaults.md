@@ -99,6 +99,7 @@ Requirements:
 - meaningful domain/operation transitions where useful;
 - rotation/retention or an equivalent bounded strategy;
 - configurable log level;
+- discoverable, platform-appropriate log location;
 - no passwords, tokens, secrets, private keys, or unnecessary sensitive data;
 - avoid high-volume spam in normal mode.
 
