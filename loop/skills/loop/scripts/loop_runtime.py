@@ -142,7 +142,8 @@ def task_summary(events: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], di
     successes = [t for t in completed if t["status"] == "success"]
     failed = [t for t in completed if t["status"] == "failed"]
     blocked = [t for t in completed if t["status"] == "blocked"]
-    reworked = [t for t in completed if t["rework"] > 0]
+    implementation_tasks = [t for t in completed if t["kind"] == "implement"]
+    reworked = [t for t in implementation_tasks if t["rework"] > 0]
     conflicts = sum(t["conflicts"] for t in completed)
     timed = [t["duration_sec"] for t in completed if t["duration_sec"] is not None]
     by_kind: dict[str, list[float]] = defaultdict(list)
@@ -156,7 +157,7 @@ def task_summary(events: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], di
         "failed": len(failed),
         "blocked": len(blocked),
         "first_pass_success_rate": round((len([t for t in successes if t["rework"] == 0]) / len(completed)), 3) if completed else None,
-        "rework_rate": round((len(reworked) / len(completed)), 3) if completed else None,
+        "rework_rate": round((len(reworked) / len(implementation_tasks)), 3) if implementation_tasks else None,
         "conflicts": conflicts,
         "task_runtime_sum_sec": round(sum(timed), 1),
         "avg_task_sec": round(sum(timed) / len(timed), 1) if timed else None,

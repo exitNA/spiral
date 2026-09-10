@@ -322,14 +322,14 @@ Loop 与 Ethos 是两个独立插件。通过当前技能目录发现可用的 E
 
 ## 目录
 
-- `SKILL.md`：完整开发执行契约及学习循环入口。
-- `agents/openai.yaml`：显式 `$loop` 调用设置。
+- `skills/loop/SKILL.md`：完整开发执行契约及学习循环入口。
+- `skills/loop/agents/openai.yaml`：显式 `$loop` 调用设置。
 - `assets/agents/`：架构、测试和独立审查角色模板。
-- `scripts/loop_runtime.py`：原版运行统计与跨运行过程提示。
-- `references/`：需求展开、项目阶段、工程规范、编排、验证、效率、学习与压缩规则。
-- `templates/`：任务契约和恢复快照。
+- `skills/loop/scripts/loop_runtime.py`：运行统计与跨运行过程提示。
+- `skills/loop/references/`：需求展开、项目阶段、工程规范、编排、验证、效率、学习与压缩规则。
+- `skills/loop/templates/`：任务契约和恢复快照。
 
-本版以找回的 `loop-bak/` 为基础，合入此前重建的学习和 Ethos 协作能力。详细来源见 [合并依据](references/sources.md)。
+本版以找回的 `loop-bak/` 为基础，合入此前重建的学习和 Ethos 协作能力。详细来源见 [合并依据](skills/loop/references/sources.md)。
 
 ## 安装独立插件
 

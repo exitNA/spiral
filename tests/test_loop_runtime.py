@@ -43,5 +43,35 @@ class FirstPassSuccessTests(unittest.TestCase):
         self.assertIsNone(stats['first_pass_success_rate'])
 
 
+class ReworkRateTests(unittest.TestCase):
+    def summarize(self, outcomes):
+        events = []
+        for index, (kind, rework) in enumerate(outcomes):
+            events.extend([
+                dict(type='task_start', task=str(index), ts=index * 10, kind=kind),
+                dict(type='task_end', task=str(index), ts=index * 10 + 5,
+                     status='success', rework=rework),
+            ])
+        return runtime.task_summary(events)
+
+    def test_review_tasks_do_not_dilute_implementation_rework(self):
+        tasks, stats = self.summarize([('implement', 1)] + [('review', 0)] * 9)
+        self.assertEqual(stats['rework_rate'], 1)
+        hints = runtime.policy_hints({'tasks': stats, 'events': {}}, tasks)
+        self.assertTrue(any('shrink implementation task scope' in hint for hint in hints))
+
+    def test_non_implementation_rework_does_not_trigger_implementation_advice(self):
+        tasks, stats = self.summarize([('implement', 0), ('review', 1), ('test', 1)])
+        self.assertEqual(stats['rework_rate'], 0)
+        hints = runtime.policy_hints({'tasks': stats, 'events': {}}, tasks)
+        self.assertFalse(any('shrink implementation task scope' in hint for hint in hints))
+
+    def test_no_implementation_tasks_has_no_rework_rate(self):
+        for outcomes in ([], [('review', 1)]):
+            with self.subTest(outcomes=outcomes):
+                _, stats = self.summarize(outcomes)
+                self.assertIsNone(stats['rework_rate'])
+
+
 if __name__ == '__main__':
     unittest.main()

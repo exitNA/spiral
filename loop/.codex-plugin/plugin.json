@@ -1,6 +1,6 @@
 {
   "name": "loop",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Autonomous task orchestrator that turns requirements into verified outcomes.",
   "author": {
     "name": "Mark"
