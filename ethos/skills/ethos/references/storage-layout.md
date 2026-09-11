@@ -19,11 +19,25 @@ Use one `.ethos/` at the resolved repository root, independently of where the Et
       candidates.md                  # Optional uncertain evidence, never doctrine
 ```
 
-Create files and directories only when qualifying content needs them. A small project normally needs only `SOUL.md`; skip empty directories, placeholder sections, and a redundant README/index. The project mind links to the actual domain, decision, and topic documents that exist.
+Create files and directories only when qualifying content needs them. A small project may need only `SOUL.md`; file count and line count are not quality targets. The project mind is a coherent model across its authorities, with `SOUL.md` as the concise entrypoint. Keep enough purpose, relationships, and cross-cutting judgment there to orient a new task; it must remain useful without opening every linked document.
 
-Keep principles, taste, collaboration, and engineering practice as sections of the project mind initially. Split a coherent subject into `topics/` only when it has become substantial enough to obscure the overview. Leave a concise summary and relative link in the project mind, and move the detailed rules so each meaning has one owner.
+## Split by decision scope
+
+Keep principles, taste, collaboration, and engineering practice in `SOUL.md` while they form a useful shared overview. Extract a topic when it has a distinct class of decisions or tasks, meaningful detail those tasks need, and a clear reading trigger that lets unrelated tasks skip it. Length can reveal a problem but is not itself a reason to split. Prefer one file when the proposed pieces must always be read together; merge fragmented topics when their boundaries no longer help retrieval.
+
+For each extraction:
+
+1. Identify the topic's scope and consumers; use an existing authority when one already owns the meaning.
+2. Move its detailed judgment, conditions, exceptions, and useful rationale together. Keep project-wide invariants in the core and reference them from topics where needed.
+3. Leave a short orientation and a relative link in `SOUL.md` that states when to read it, for example “Before changing event creation, correction, or deletion, read [event lifecycle](topics/event-lifecycle.md).” A bare filename or “more details” does not establish a retrieval rule.
+4. Reconcile links and remove the superseded full explanation. The core summary routes readers to the authoritative detail; it must not become a second editable rule set. Keep each topic understandable with the core and only its necessary dependencies.
+5. Verify that a relevant task can reach its full guidance and an unrelated task can proceed from the core without loading it. Preserve discoverability when moving or merging topics; avoid empty category folders and a document per observation.
 
 Keep domain definitions in `CONTEXT.md`. Record consequential historical rationale in `decisions/`, using the next unused four-digit sequence and a descriptive lowercase hyphenated name. Preserve accepted decisions and mark replacements explicitly; reconcile current judgment in the project mind. Use relative links such as `decisions/0001-storage-layout.md` from the project mind and `../SOUL.md` from decisions.
+
+## Read by task
+
+Start from `SOUL.md`, follow the links whose triggers match the current decision, and load additional dependencies only when the topic requires them. Broaden reading when a decision crosses scopes or exposes a conflict. Do not recursively load the whole knowledge tree or select guidance by filename alone. A linked topic cannot silently override a core invariant; reconcile the conflict in its authority before relying on it.
 
 ## Existing knowledge
 

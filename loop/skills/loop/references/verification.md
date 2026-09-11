@@ -42,7 +42,7 @@ When a concrete failure is reproducible:
 
 A reviewer should inspect the diff and requirements from a fresh role/context.
 
-At final review, supply the original request, baseline requirements, explicit scope changes, final artifact/version, evidence map, and dynamic work list including retired-item reasons. The reviewer checks missing capabilities, lost coverage from cancelled/replaced work, and removed/weakened checks before code quality. Return uncovered IDs to an implementation owner, repair them, and recheck affected requirements. A read-only inventory completed before implementation is not final review.
+At final review, supply the original request, baseline requirements, explicit scope changes, final artifact/version, evidence map, and dynamic work list including retired-item reasons. The reviewer checks missing capabilities, lost coverage from cancelled/replaced work, and removed/weakened checks before code quality. For UI acceptance, supply actual runtime views and interaction evidence; source inspection alone leaves visual quality unverified. Return uncovered IDs to an implementation owner, repair them, and recheck affected requirements. A read-only inventory completed before implementation is not final review.
 
 Reviewer output should prioritize findings by severity and include concrete file/symbol references when possible.
 
@@ -63,6 +63,8 @@ A substantial run is complete only when:
 - independent review has no unresolved blocking findings, or the unavailable-agent fallback below has been performed and its limitation disclosed;
 - the final integrated state, not only individual worker branches, is verified.
 
+Before deciding, re-read the saved requirement map and completion/handoff section. For each proposed delivery claim, identify the covered R IDs and relevant final-state evidence, including any contradictory observation or later correction. Resolve stale statuses by checking the evidence, not by copying the proposed summary into the record. Save and re-read the reconciled record; the response must agree with its outstanding IDs and completion reason. With no permitted persistent record, perform the same reconciliation against the explicitly identified in-memory map and disclose the tracking limitation.
+
 Decide from the requirement map:
 
 | Observed state | Required next action |
@@ -74,7 +76,7 @@ Decide from the requirement map:
 
 Before sending a final answer, compare any proposed "remaining work" with the original scope. Required work still actionable sends the loop back to execution. Optional enhancements outside that scope may be reported without extending the task. Never invent a time limit or request permission merely to continue already-authorized work.
 
-For UI replacements, test user actions through the new UI and their visible results, persistence, and important error paths. Core tests establish core behavior; compilation establishes buildability. Neither alone verifies settings forms, querying/filtering, export, or platform interactions. If UI execution is unavailable, finish independently testable work and identify the unverified requirements and actual environmental limitation.
+For UI work, verify interaction correctness and visual quality separately. Exercise requested actions through the real UI, check their visible results and persistence after leaving/reopening, and cover meaningful state differences and important error paths. An edit/delete claim needs evidence for the requested record types and states; the presence of a button or a generic form route is insufficient. Inspect representative screens at meaningful sizes against the active design authority for hierarchy, density, overlap, and action clarity. A screenshot supports appearance in that state, not persistence or unseen pages; tests and compilation support their own checked behavior, not visual quality. If UI execution is unavailable or interrupted, finish independent checks and report the affected requirements as unverified rather than treating the interruption as a pass.
 
 ## No endless polish
 

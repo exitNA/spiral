@@ -21,8 +21,8 @@ Project knowledge is an authority system rather than a note collection. `.ethos/
 
 ## Principles
 
-- **Independent plugins, optional cooperation:** Loop delivers the work; Ethos automatically evolves project judgment when available.
-- **Coarse whole before local polish:** validate architecture, main flow, and product direction before deep refinement.
+- **独立插件、可选协作：** Loop 负责交付；Ethos 可用时自动演进项目判断，并指出对当前交付的影响。Loop 将实现落差映射到原任务的需求、修复和验收。知识已整合与产品已满足要求是两个独立结论，协作不增加强制依赖或学习专用续跑。
+- **先验证整体方向，再细化：** 深入局部优化前，验证架构、主流程和产品方向。易用性改进先核对真实用户流程与操作价值，再优化视觉；交互正确性和界面质量分别取证。编译、测试数量或知识更新不能代替用户要求的最终成果证据。
 - **需求不是意图，以原始交付范围验收：** 用户提出的 request 是需求，是范围与验收的原始权威；意图只能是基于证据的解释，不能替代或缩小需求。客观证据和独立审查必须对应用户要求的完整成果；粗粒度整体只是中间里程碑。迁移默认保留范围内的用户能力，原验收义务不能因更换实现或删改文档而消失。仍可执行的必需工作应继续完成；取消、明确预算和真实外部阻塞则按实际状态交接，不缩小目标后宣称完成。
 - **Coherence over capture:** improve the existing model instead of appending detached observations.
 - **每个用户任务独立记录：** Loop 为每个独立目标建立带稳定 ID 的任务文档，小任务也不例外；ID 按本地创建时间戳与简短语义命名，便于按时间浏览和识别。模板中的 `Task ID`、`Created`、`Updated` 是纯字段名，格式说明不属于字段名；`Created` 固定，`Updated` 随任务记录的有效更新使用本地时间刷新。同一目标的补充、纠正和恢复沿用该文档，新目标另建并关联。任务状态不与项目长期判断混写，也不靠会话上下文代替持久记录。
@@ -31,7 +31,7 @@ Project knowledge is an authority system rather than a note collection. `.ethos/
 - **Evidence before preference:** infer conditional preferences from independent choices and their rationale, preserving constraints and counterexamples. Repetition alone does not establish taste or intent. Keep useful uncertain evidence in a bounded, ignored local candidate store; promote established meaning into its authority and remove the candidate.
 - **One meaning, one authority:** route each insight to the narrowest source of truth and remove superseded guidance.
 - **Current synthesis over history:** keep active doctrine focused on present judgment; preserve history only when its rationale remains useful.
-- **Project ownership:** Ethos distills durable project knowledge under the repository-root `.ethos/`. Keep the current synthesis in `SOUL.md`, domain semantics in `CONTEXT.md`, consequential rationale in `decisions/`, and substantial focused guidance in `topics/` only when needed. Create only files with real content and maintain one authority per meaning.
+- **项目心智按决策范围组织：** 仓库根目录 `.ethos/` 保存统一心智，`SOUL.md` 保留跨任务需要的核心理解与阅读入口；领域语义、重要决策理由和特定主题分别归属对应权威。按实际任务的读取需要拆分，每个入口说明何时读取；不按文件长度机械拆分，也不为每条观察建文件。完整规则只维护一处，核心摘要不形成第二份规则集。
 
 ## Taste
 

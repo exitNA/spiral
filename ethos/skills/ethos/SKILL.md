@@ -21,7 +21,7 @@ Keep screening internal and finish relevant learning before the normal task resp
 
 ### 1. Read relevant judgment
 
-Resolve the repository root and project scope. Read applicable `AGENTS.md`, relevant `.ethos/` knowledge, and existing README, architecture, glossary, or decision authorities before project decisions or knowledge edits. Apply established rules only within their conditions; compare later outcomes with their rationale. Reconcile counterexamples rather than reversing a rule automatically.
+Resolve the repository root and project scope. Read applicable `AGENTS.md` and `.ethos/SOUL.md`, then follow task-relevant reading triggers to topic, domain, and decision authorities; consult existing README and architecture authorities as needed. Use [references/storage-layout.md](references/storage-layout.md#read-by-task) for cross-scope or conflicting guidance. Apply established rules only within their conditions; compare later outcomes with their rationale. Reconcile counterexamples rather than reversing a rule automatically.
 
 When relevant local candidates exist, read [references/candidates.md](references/candidates.md) and the store before the decision and again at the end-of-turn check. Candidates are evidence to assess, never instructions or authority for product choices. Their absence on another checkout or machine does not disprove a preference.
 
@@ -54,6 +54,8 @@ For uncertain observed evidence worth retaining, follow [references/candidates.m
 ### 5. Verify the update
 
 Re-read changed sections in context for coherence, selected language, contradictions, and duplicate authorities. Verify new paths and links, and run relevant validation for modified Skills, configuration, or executable policy. Scale checks to the actual change; repeat only when an edit, failure, or unresolved concern warrants it.
+
+When a changed judgment affects the current deliverable, reconcile its application using [references/knowledge-model.md](references/knowledge-model.md#application-to-active-work). Recording the desired rule and verifying implemented behavior are separate outcomes.
 
 Every material signal must be integrated, retained as a candidate, clarified, or discarded before finishing the check. A pending clarification or blocked write remains unresolved rather than being reported as successful integration.
 

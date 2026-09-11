@@ -50,6 +50,14 @@ If no future decision changes, the candidate is probably not durable knowledge.
 - Current doctrine should state the best present synthesis and link to rationale instead of duplicating it.
 - When authorities disagree, surface the conflict. Do not pick whichever source is easiest to edit.
 
+## Application to active work
+
+When established judgment changes behavior required by the current task, inspect the relevant existing implementation, verification, and documentation for conflicts. State the desired rule separately from observed reality; a successful knowledge edit proves only that the rule was recorded. An explicit correction authorizes replacing superseded judgment without re-asking merely because older doctrine disagrees; clarify genuinely unresolved scope or meaning.
+
+Return a compact task-local impact to the active executor: authority pointer, affected behavior, observed conflicts/evidence, and the acceptance checks that need revision. Express checks as user actions, affected states, and observable effects; for persistence changes include leaving and reopening the affected data. With Loop, let its orchestrator update the existing task record and reopen affected requirements. Without Loop, use the current task's normal execution or handoff; do not create a Loop dependency, duplicate task tracker, or learning-only continuation.
+
+Implementation follows the task's existing authorization. In a knowledge-only task, integrate the rule and report observed application gaps without changing product code or claiming they are fixed. In an implementation task, the executor owns repair and final verification. Keep transient gap lists out of doctrine. Distinguish knowledge integration status from product acceptance in the result whenever either remains incomplete.
+
 ## Pruning standard
 
 Every update is also a pruning pass over the touched concept:

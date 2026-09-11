@@ -34,6 +34,7 @@ Maintain the work list during execution:
 - Split, merge, replace, or reorder work as evidence changes. Preserve retired IDs as superseded and link replacements that inherit their requirement coverage; update dependents to the active replacements. A retired item is not completed work and cannot satisfy a dependency merely by leaving the active list.
 - Cancel an unnecessary item with a reason and the replacement/evidence satisfying its requirements. Cancelling work that removes an outcome requires an authorized scope-change reference. Retain excluded requirements with their justification rather than deleting them.
 - On failed verification, mark the affected requirement failed and reopen or add repair and verification work. When an artifact changes after verification, reassess affected evidence and mark it unverified until the necessary checks pass for the new version; unchanged valid evidence may be reused with its scope made explicit.
+- Treat user rejection as evidence against the affected acceptance claim, even after a previous completion. Resume the same task, record the correction and affected R IDs, reopen repair/verification work, and make the next action explicit. A changed product model also requires checking dependent flows, contracts, tests, and documentation; preserve unaffected evidence. A new preference outside the original scope is an authorized change, not proof that the previous implementation was defective.
 - Mark a work item done only when its own done condition has evidence. Completing implementation does not automatically verify its requirement. Before delivery, apply [verification.md](verification.md) to the original requirements, current evidence, and unresolved work. A fully checked work list is not sufficient by itself.
 
 At checkpoints, reconcile both directions: each active requirement has work or valid evidence, and each active work item serves a requirement or a necessary delivery constraint. Preserve meaningful adjustment reasons in the work items; do not accumulate a transcript of routine status changes. Keep overall blockers and next action in the current-execution section and final evidence in the completion/handoff section.
@@ -67,7 +68,7 @@ When Ethos is available, pass qualifying project-judgment candidates to it:
 - the proposed scope and whether the human made it explicit;
 - uncertainty or conflicts that still need resolution.
 
-Ethos integrates the current model in place. Loop keeps only the handoff status and evidence pointer, not a competing copy of doctrine. If Ethos is unavailable, skip this optional integration; its absence creates no pending work or delivery blocker.
+Ethos integrates the current model in place. Loop maps any reported implementation gaps to affected R IDs and repair/verification work using the reopening rules above; knowledge integration alone does not verify those requirements. Keep the authority pointer and task-local impact, not a competing copy of doctrine. If Ethos is unavailable, apply the user's correction directly and skip optional knowledge integration; its absence creates no pending work or delivery blocker.
 
 ## Compress at meaningful boundaries
 

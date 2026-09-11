@@ -9,6 +9,8 @@ Own the requested outcome from requirements to verified delivery. A repository o
 
 Read this entrypoint fully, then load references at the decision points below. If output is truncated, retrieve the missing section.
 
+On resumption or a stale invocation path, resolve the available skill through [codex-runtime.md](references/codex-runtime.md#skills) and resume the same task record; a missing cache path does not cancel the task's acceptance obligations.
+
 ## Scope and authority
 
 Treat the user's request as the requirement. Inferred intent may clarify it but must not replace or shrink it. Resolve choices in this order: explicit user instructions, applicable repository instructions, established project judgment, referenced specifications, observed behavior/tests, repository conventions, then conservative assumptions.
@@ -46,7 +48,7 @@ Each pass should produce a bounded change or useful evidence:
 
 1. Compare observations with the requirement and choose a falsifiable hypothesis or next deliverable.
 2. Execute within the current ownership and scope, then inspect actual output and run the relevant verifier.
-3. Record the result and update work, requirement evidence, blockers, and the next action in LOOP.md. Changed artifacts invalidate affected earlier evidence until rechecked.
+3. Record the result and update work, requirement evidence, blockers, and the next action in LOOP.md. Changed artifacts invalidate affected earlier evidence until rechecked. User rejection or corrected product judgment follows the reopening rules in [memory-compression.md](references/memory-compression.md#stable-requirements-dynamic-work) before further implementation.
 4. Continue on useful progress. Repeated failures require a new diagnosis or a better task boundary, contract, or representation; do not repeat an unchanged attempt. Roll back only the loop's own regressing experiment, preserving other work and diagnostic evidence.
 
 ## 3. Delegate independent work
@@ -65,7 +67,7 @@ Read [verification.md](references/verification.md) before selecting acceptance c
 
 Match verification to the deliverable and risk: relevant deterministic checks, reproductions/regressions, integration/runtime checks, source support, calculation reconciliation, or artifact inspection. Do not add tests that merely mirror a reversible low-impact edit. Once required checks pass, repeat or broaden them only for new changes, failures, or unresolved concerns. Use an independent reviewer for substantial work when available; otherwise use objective checks and a separate review pass with the limitation disclosed.
 
-Reconcile every original in-scope requirement against evidence for the final result. Missing, failed, or unverified capabilities return to execution while useful authorized work remains. A build, a worker summary, or an all-done work list alone is not acceptance.
+Re-read the saved LOOP.md and apply the completion gate to every original in-scope requirement and authorized correction. Reconcile the record, final artifact evidence, and proposed delivery claims before answering; missing, failed, or unverified capabilities return to execution while useful authorized work remains.
 
 Stop when the completion gate passes, the requested bounded turn ends, the user cancels, an explicit budget/deadline ends, or a genuine external/context boundary prevents further progress. For incomplete work, save an accurate checkpoint with outstanding IDs, evidence, blocker, and next safe action; do not reduce the goal to declare success. Exhaust independent work before reporting an external blocker. Optional polish does not justify endless iteration.
 

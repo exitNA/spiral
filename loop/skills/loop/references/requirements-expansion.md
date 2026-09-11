@@ -25,6 +25,8 @@ For a short requirement, derive only:
 
 Do not manufacture a heavyweight PRD for a small change.
 
+For usability or simplification requests, establish one representative real user journey before broad visual refinement: entry, necessary inputs, primary action, persisted effect, and return/edit/delete behavior where requested. Justify extra save, confirmation, or management steps by user value or a real constraint. Check the current interaction model against the request instead of accepting it merely because existing tests encode it. Translate subjective qualities into observable examples using the current design authority and actual runtime output; text reduction alone does not establish ease of use.
+
 ## Scope control
 
 Brief requirements are not permission for arbitrary redesign.

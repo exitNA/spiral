@@ -321,6 +321,7 @@ Loop 与 Ethos 是两个独立插件。通过当前技能目录发现可用的 E
 - `skills/loop/scripts/loop_runtime.py`：运行统计与跨运行过程提示。
 - `skills/loop/references/`：需求展开、项目阶段、工程规范、编排、验证、效率、学习与压缩规则。
 - `skills/loop/templates/`：任务契约和恢复快照。
+- `evals/`：完成判定、反馈重开与恢复连续性的行为场景及验证方法。
 
 本版以找回的 `loop-bak/` 为基础，合入此前重建的学习和 Ethos 协作能力。详细来源见 [合并依据](skills/loop/references/sources.md)。
 

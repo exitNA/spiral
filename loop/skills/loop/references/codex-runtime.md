@@ -10,6 +10,8 @@ The skill name is `loop`, so the intended explicit invocation is:
 
 `$loop ...`
 
+If an invocation points to a missing versioned cache, resolve the same skill from the active catalog or an available installation and read it. Preserve the resolved path/version in the task's recovery context and revalidate it after a session change; do not repeatedly retry a known-stale path or infer the loaded version from a directory name alone. If discovery finds no usable skill, disclose the limitation and preserve the existing task record and acceptance obligations while continuing authorized work supported by available instructions.
+
 ## Native plan/checklist tool
 
 The visible work-list projection depends on host capabilities and is not supplied by this plugin. Inspect the tools actually exposed in the current task before publishing:

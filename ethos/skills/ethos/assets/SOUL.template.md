@@ -1,6 +1,6 @@
 # Project Mind
 
-This document is the project's current best synthesis. Revise it when evidence changes; do not use it as a chronological log.
+This document is the project's concise shared model and entrypoint to deeper judgment. Keep purpose, key relationships, and cross-cutting principles readable here; place task-specific depth in linked authorities when useful. Revise the current synthesis rather than accumulating a chronological log.
 
 ## Purpose
 
@@ -32,4 +32,4 @@ Include only unresolved tensions that materially affect future decisions. Remove
 
 ## Knowledge Index
 
-Link only existing authorities: `CONTEXT.md` for domain meaning, `topics/<topic>.md` for detailed guidance, and `decisions/NNNN-short-title.md` for consequential rationale. Use relative links and omit unused entries.
+Link only existing authorities: `CONTEXT.md` for domain meaning, `topics/<topic>.md` for detailed guidance, and `decisions/NNNN-short-title.md` for consequential rationale. Each entry states the decision or task that requires reading it. Use relative links and omit unused entries; avoid repeating links already placed beside the relevant core concept. The linked document owns the detail, including its conditions and exceptions.
